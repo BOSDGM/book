@@ -1,0 +1,7 @@
+{
+    "title" : "网络",
+    "theme-default": {
+        "showLevel": true
+    },
+    "plugins": ["toggle-chapters", "theme-comscore", "expandable-chapters"]
+}
