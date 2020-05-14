@@ -1,5 +1,9 @@
 {
     "plugins":[
-        "expandable-chapters"
+        "expandable-chapters-small",
+        "expandable-chapters",
+        "back-to-top-button",
+        "expandable-chapters-small",
+        "chapter-fold"
     ]
 }
