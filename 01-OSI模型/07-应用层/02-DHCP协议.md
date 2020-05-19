@@ -64,11 +64,10 @@
    IPADDR=10.10.10.1
    NETMASK=255.255.255.0
    ```
-   
-   
    设置网卡:
    `vim /etc/sysconfig/dhcpd`
    配置如下:
+   
    ```python
    DHCPDARGS=eth0:1     #指定在eth0:1虚接口上提供dhcpserver服务
    ```
