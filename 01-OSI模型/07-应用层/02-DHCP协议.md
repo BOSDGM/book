@@ -44,7 +44,40 @@
 
 ### 2.1.2 配置
 
-   `vim /etc/dhcp/dhcpd.conf`
+1. 配置网卡
+
+   ```python
+   cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-   scripts/ifcfg-eth0:1
+   vim /etc/sysconfig/network-scripts/ifcfg-eth0:1
+   ```
+
+   配置如下:
+
+   ```python
+   DEVICE=eth0:1
+   HWADDR=00:0C:29:AD:F8:B7
+   TYPE=Ethernet
+   UUID=d60f7bad-0f18-420a-8e19-3e361f8ffed4
+   ONBOOT=yes
+   NM_CONTROLLED=yes
+   BOOTPROTO=static
+   IPADDR=10.10.10.1
+   NETMASK=255.255.255.0
+   ```
+   
+   
+   设置网卡:
+   `vim /etc/sysconfig/dhcpd`
+   配置如下:
+   ```python
+   DHCPDARGS=eth0:1     #指定在eth0:1虚接口上提供dhcpserver服务
+   ```
+
+2. 配置DHCP服务器
+
+   ```python
+   vim /etc/dhcp/dhcpd.conf
+   ```
    修改配置如下:
 
    ```python
@@ -65,46 +98,19 @@
    }
    ```
 
-### 2.1.3 配置虚拟网卡
+### 2.1.3 开启DHCP服务
+```
+service dhcpd start
+或者:
+/etc/init.d/dhcpd start
 
-   ```python
-   cp /etc/sysconfig/network-scripts/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0:1
-   vim /etc/sysconfig/network-scripts/ifcfg-eth0:1
-   ```
-   配置如下:
-   ```python
-   DEVICE=eth0:1
-   HWADDR=00:0C:29:AD:F8:B7
-   TYPE=Ethernet
-   UUID=d60f7bad-0f18-420a-8e19-3e361f8ffed4
-   ONBOOT=yes
-   NM_CONTROLLED=yes
-   BOOTPROTO=static
-   IPADDR=10.10.10.1
-   NETMASK=255.255.255.0
-   ```
-
-### 2.1.4 指定DHCP使用的网卡
-
-   `vim /etc/sysconfig/dhcpd`
-
-   ```python
-   DHCPDARGS=eth0:1     #指定在eth0:1虚接口上提供dhcpserver服务
-   ```
-
-### 2.1.5 开启DHCP服务
-   ```
-   service dhcpd start
-   或者:
-   /etc/init.d/dhcpd start
-   
-   如果未正常启动可以查看日志:
-   tail -n 200 /var/log/messages
-   ```
-### 2.1.6 配置开机自启
-   ```python
-   chkconfig dhcpd on 
-   ```
+如果未正常启动可以查看日志:
+tail -n 200 /var/log/messages
+```
+### 2.1.4 配置开机自启
+```python
+chkconfig dhcpd on 
+```
 ## 2.2 Ubuntu16.04
 
 ### 2.2.1 安装
@@ -127,10 +133,50 @@
   2. 配置DHCP信息
 
      `vim /etc/dhcp/dhcpd.conf`
+     
+     配置如下:
+     
+     ```python
+     # option domain-name "example.org"  # 配置DNS解析服务器域名
+     尾部追加:
+     subnet 10.0.2.0 netmask 255.255.255.0 {
+       range 10.0.2.10 10.0.2.100;
+       option subnet-mask 255.255.255.0;
+       option routers 10.0.2.254;
+       option domain-name-servers 10.0.2.1;
+     }
+     ```
+     
+### 2.2.3 启停服务
+```python
+systemctl start/stop/restart isc-dhcp-server
+systemctl status isc-dhcp-server
+```
 
+### 2.2.4 检测DHCP服务
 
+1. 端口
 
+   ```python
+   netstat -naup | grep dhcp
+   lsof -i udp:63
+   ```
 
+2. 抓包
+
+   监听网卡
+
+   ```
+   tcpdump -i enp0s3
+   ```
+
+   利用客户端强制发送DHCP请求
+
+   ```python
+   dhclient enp0s3
+   ```
+
+   
 
 
 
