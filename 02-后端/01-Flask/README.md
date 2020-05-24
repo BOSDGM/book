@@ -31,3 +31,29 @@ Flask本身相当于一个内核, 其他功能都需要外设框架
 ​	中文: http://docs.jinkan.org/docs/flask/
 
 ​	英文: http://flask.pocoo.org/docs/0.11/
+
+# 2. hello word
+
+flask创建web非常简单, 如下代码即可实现一个简单的web:
+
+http://localhost:5000/
+
+默认端口: 5000
+
+```python
+from flask import Flask
+from datetime import datetime
+
+# app实例化
+app = Flask(__name__)
+
+# view创建
+@app.route("/")
+def index():
+    return "now time is: {}".format(datetime.now()), 200
+
+if __name__ == '__main__':
+    # 服务运行
+    app.run(host="0.0.0.0", debug=True)
+```
+
