@@ -234,7 +234,7 @@ class WSGIServer(object):
         """这个方法，会在 web框架中被默认调用"""
         response_header_default = [
             ("Data", time.ctime()),
-            ("Server", "ItCast-python mini web server")
+            ("Server", "my-python mini web server")
         ]
 
         # 将状态码/相应头信息存储起来
