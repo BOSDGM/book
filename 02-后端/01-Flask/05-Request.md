@@ -1,9 +1,9 @@
-# 1. request
+# request
 
 `request`为客户端请求信息的封装, 可以使用这个对象来提取需要的参数
 
-## 1.1 请求数据
-### 1.1.1 url数据
+# 1.  请求数据
+## 1.1 url
 
 `request.args`, 用于提取url中的参数. 方法参见`ImmutableMultiDict`
 
@@ -14,7 +14,7 @@ request.args.get("a")
 request.items()
 ```
 
-### 1.1.2 form表单数据
+## 1.2 form表单
 
 form表单数据包含两种数据提取方法
 
@@ -35,7 +35,7 @@ form表单数据包含两种数据提取方法
 
 
 
-#### 1.1.2.1 `request.form`
+### 1.2.1 `request.form`
 
 提取文本数据, 一般`text`, `textarea`, `password`, `radio`等标签. 方法参见`ImmutableMultiDict`
 
@@ -44,7 +44,7 @@ request.form.get("test")   # 1
 request.form.getlist("test")  # ['1', '2']
 ```
 
-#### 1.1.2.2 `request.files`
+### 1.2.2 `request.files`
 
 提取文件(文件/图片等流数据)数据, 一般`file`等标签. 方法参见`ImmutableMultiDict`.
 
@@ -59,7 +59,7 @@ request.files.get("file")   # <FileStorage: 'netspeed.py' ('text/plain')>
 * 要想提取到文件, 前端必须使用`enctype="multipart/form-data"`
 * 可以用`request.close()`来关闭本次访问的全部文件流对象
 
-### 1.1.3 url及表单参数
+## 1.3 url+form
 
 同时获取表单和url参数
 
@@ -77,7 +77,7 @@ request.files.get("file")   # <FileStorage: 'netspeed.py' ('text/plain')>
 
 
 
-### 1.1.4 json数据
+## 1.4 json
 
 `request.json`, dict类型. 直接可以使用
 
@@ -86,9 +86,32 @@ request.files.get("file")   # <FileStorage: 'netspeed.py' ('text/plain')>
 <class 'dict'>
 ```
 
-## 1.2 头部信息
+## 1.5 cookies
 
-### 1.2.1 完整头部信息
+`request.cookies`, 格式为字典, 获取客户端的cookies
+
+## 1.6 body源数据
+
+`request.data`, 获取body源数据, bytes
+
+```python
+b'{\n\t"a": [1, 2, 3]\n}'
+```
+## 1.7 无法解析的数据
+
+`request.stream`,  flask无法解密的数据, 封装在stream中(不破坏格式), 只能获取一次
+
+## 1.8 其他数据
+
+`request.environ`, 客户端的全部信息, 此数据是即将送往wsgi中处理的第一个参数
+
+```python
+{'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=632>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi ... T_LANGUAGE': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7', 'werkzeug.request': <Request 'http://localhost:5000/abc/dtc/abc/?date=2020' [GET]>}
+```
+
+# 2. 请求头部
+
+## 2.1 请求头
 
 `request.headers`, `<class 'werkzeug.datastructures.EnvironHeaders'>`, 方法类似`ImmutableMultiDict`. 包含了客户端全部的headers信息
 
@@ -104,37 +127,15 @@ request.files.get("file")   # <FileStorage: 'netspeed.py' ('text/plain')>
  Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
 ```
 
-### 1.2.2 cookies
-
-`request.cookies`, 格式为字典, 获取客户端的cookies
-
-## 1.3 url信息
-
+## 2.2 请求行
 ```python
-http://localhost:5000/abc/dtc/abc/?date=2020
+curl http://localhost:5000/abc/dtc/abc/?date=2020
         
 @app.route("/abc/dtc/<string:b>/")
 def index1(b):
     return b
 ```
-
-* `request.method`
-
-  请求的方式
-
-  ```python
-  GET
-  ```
-
-* `request.environ`
-
-  客户端的全部信息, 此数据是即将送往wsgi中处理的第一个参数
-
-  ```python
-  {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=632>, 'wsgi.errors': <_io.TextIOWrapper name='<stderr>' mode='w' encoding='UTF-8'>, 'wsgi ... T_LANGUAGE': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7', 'werkzeug.request': <Request 'http://localhost:5000/abc/dtc/abc/?date=2020' [GET]>}
-  ```
-
-  
+### 2.2.1 url数据
 
 * `request.url`
 
@@ -163,8 +164,6 @@ def index1(b):
       ...  # 中间会拼接完整的url
       return uri_to_iri("".join(tmp))  # 经过此函数后会提取出来根路径, 和中间的内容没有什么关系
   ```
-
-  
 
   ```python
   http://localhost:5000/
@@ -197,22 +196,34 @@ def index1(b):
   ```python
   localhost:5000
   ```
-
   
 
-## 1.4 body源数据
+### 2.2.2 协议及方法
 
-`request.data`, 获取body源数据, bytes
-
-```python
-b'{\n\t"a": [1, 2, 3]\n}'
-```
-
+| 功能         | 函数             |
+| ------------ | ---------------- |
+| 获取协议     | `request.scheme` |
+| 获取请求方法 | `request.method` |
 
 
-# 2. 使用的类
 
-## 2.1 ImmutableMultiDict
+**说明:**
+
+* HTTP 1.0
+  * GET: 请求页面并返回实体
+  * POST: 提交数据
+  * HEAD: 获取headers
+* HTTP 1.1
+  * OPTIONS: 查询服务器性能
+  * PUT: 提交并修改数据
+  * PATCH: 补充PUT方法, 对已知资源进行更新
+  * DELETE: 删除数据
+  * TRACE: 回显, 用于测试或诊断
+  * CONNECT: HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器
+
+# 4. 使用的类
+
+## 4.1 ImmutableMultiDict
 
 request中多次采用了不可变字典, 来封装客户端传递的数据, 实例中只使用了`request.args`做演示.
 
@@ -322,7 +333,7 @@ TypeError: 'ImmutableMultiDict' objects are immutable
 
   
 
-## 2.2 FileStorage
+## 4.2 FileStorage
 
 主要用于文件流对象的读取
 

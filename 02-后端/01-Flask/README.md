@@ -32,7 +32,7 @@ Flask本身相当于一个内核, 其他功能都需要外设框架
 
 ​	英文: http://flask.pocoo.org/docs/0.11/
 
-# 2. hello word
+## 1.3 hello word
 
 flask创建web非常简单, 如下代码即可实现一个简单的web:
 
@@ -57,3 +57,18 @@ if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
 ```
 
+# 2. 模块说明
+
+flask是由jinjia2 + Werkzeug组成
+
+Werkzeug:  HTTP通信, 路由, 视图,  本质是遵循WSGI协议的socket的服务器.
+
+jinjia2: WSGI, 模板引擎, 转化复杂的数据成字符串给客户端.
+
+* 常见WSGI模块:
+
+  * wsgiref
+  * werkzeug
+  * uwsgi
+
+  
