@@ -30,7 +30,14 @@ pip install pymysql
 pip install flask-migrate
 ```
 
+**注意**:
 
+在模型创建前一定要先声明使用的引擎, 否则会出现异常:
+
+```python
+from pymysql import install_as_MySQLdb
+install_as_MySQLdb()
+```
 
 ## 1.2 helloword
 
