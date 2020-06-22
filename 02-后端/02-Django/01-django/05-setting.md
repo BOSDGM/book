@@ -265,6 +265,10 @@ urlpatterns = [
     path(r"admin/", admin.site.urls),
 ]
 #####################  静态文件访问  ##########################################
+
+# 也可以直接这样追加静态路由
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns()
 # http://127.0.0.1:8000/static/index.html  即可访问./statics/index.html文件
 ```
 

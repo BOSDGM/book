@@ -152,6 +152,8 @@ def _path(route, view, kwargs=None, name=None, Pattern=None):
 
 # 3. 反向解析
 
+## 3.1 reverse
+
 反向查找主要利用reverse函数实现, 模板中使用url实现
 
 ```python
@@ -258,9 +260,67 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None)
   }
   ```
 
-# 4. url参数解析
+# 4. 重定向
 
-## 4.1 位置参数
+## 4.1 redirect
+
+```python
+def redirect(to, *args, permanent=False, **kwargs)
+```
+
+* to
+
+  参数必须为以下三类:
+
+  * model: 一个带有`get_absolute_url()`方法的类
+  * reverse: reverse的结果
+  * url: 路由中的url
+
+* *args: 
+
+  重定向时候, 指定视图函数的位置参数, 仅在位置参数生效时有用
+
+* permanent:
+
+  此重定向是否为永久重定向, 表示该url被弃用, 永久重定向到下个url中
+
+* **kwargs:
+
+  重定向时候, 指定视图函数的关键字参数, 仅在关键字参数生效时有用
+
+## 4.2 实例
+
+* url重定向
+
+  ```python
+  def get(self, request, *args, **kwargs):
+  	param = urllib.parse.urlencode(kwargs)
+  	return redirect("/users/login/?{}".format(params))
+  ```
+
+* view重定向
+
+  ```python
+  class Users(View):
+      """用户登录授权"""
+  
+      def get(self, request, *args, **kwargs):
+          return redirect(Users)
+      
+      @staticmethod
+      def get_absolute_url():  # 此方法必须为静态方法
+          """"""
+          return "login"  # 返回的url将会和当前url叠加
+      
+  # 假设当前url为: http://localhost/user
+  # 则重定向为: http://localhost/user/login
+  # 也可以直接用完整url: http://www.baidu.com/  这样就不会叠加了
+  
+  ```
+
+# 5. url参数解析
+
+## 5.1 位置参数
 
 * url
 
@@ -279,7 +339,7 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None)
 
   
 
-## 4.2 关键字参数
+## 5.2 关键字参数
 
 * url
 
@@ -296,5 +356,8 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None)
   	print(years, city)  # 2020 beijing
   ```
 
-  
+
+
+
+
 
