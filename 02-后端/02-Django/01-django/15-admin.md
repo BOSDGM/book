@@ -249,3 +249,70 @@ class SomeTable(db_model.Models):
 页面效果
 
 ![image-20200622120709332](10-admin.assets/image-20200622120709332.png)
+
+### 2.2.2 富文本
+
+1. 安装
+
+   ```python
+     pip install django-ckeditor
+   ```
+
+   
+
+2. 设置
+
+     `setting.py`, 安装app并对富文本进行配置
+
+   ```python
+   INSTALLED_APPS = [
+       ...
+       'ckeditor',  # 富文本编辑器
+       'ckeditor_uploader',  # 富文本编辑器上传图片模块
+   ]
+   
+   # 富文本编辑器ckeditor配置
+   CKEDITOR_CONFIGS = {
+       'default': {
+           'toolbar': 'full',  # 工具条功能
+           'height': 300,  # 编辑器高度
+           # 'width': 300,  # 编辑器宽
+       },
+   }
+   CKEDITOR_UPLOAD_PATH = ''  # 上传图片保存路径，使用了FastDFS，所以此处设为''
+   ```
+
+     `urls.py`
+
+   ```python
+   urlpatterns = [
+       ...
+       path(r'^ckeditor/', include('ckeditor_uploader.urls')),  # 增加富文本访问的url
+   ]
+   ```
+
+  
+
+3. ORM使用富文本
+
+   ```python
+   from django.db import models
+   from ckeditor_uploader.fields import RichTextUploadingField
+   from ckeditor.fields import RichTextField
+   
+   class Many2(models.Model):
+       ...
+       comment = RichTextUploadingField(default='', verbose_name='详细介绍')  # 支持文件上传
+       comment_1 = RichTextField(default='', verbose_name='详细介绍')  # 不支持文件上传
+   ```
+
+   
+
+4. 数据库迁移
+
+   ```python
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+   

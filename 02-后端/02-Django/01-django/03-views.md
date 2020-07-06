@@ -87,5 +87,97 @@ urlpatterns = [
 ]
 ```
 
-# 2. MiXin
+# 2. 视图装饰
+
+闭包
+
+```python
+def func1(view):
+    def func2(request, *args, **kwargs):
+        """xxx"""
+        # 视图执行前, 需要执行的操作
+        res = view(request, *args, **kwargs)
+        # 视图执行后, 需要执行的操作
+        return res
+
+    return func2
+```
+
+
+
+## 2.1 隐式装饰
+
+利用as_view方法的执行, 来实现装饰功能的完成
+
+```python
+class Handle1(View):
+    """处理业务1"""
+
+    def as_view(self, *args, **kwargs):
+        view = super(Handle1, self).as_view(*args, **kwargs)
+        view = func1(view)  # 调用闭包
+        return view
+
+
+class Handle2(View):
+    """处理业务2"""
+
+    def as_view(self, *args, **kwargs):
+        view = super(Handle2, self).as_view(*args, **kwargs)
+        view = func1(view)  # 调用闭包
+        return view
+
+
+class RequestMethod(Handle1, Handle2, View):  # 利用Python广式继承, 将掉as_view拖到View中执行
+    """不同的请求使用不同的方法"""
+
+    def get(self, request):
+        return HttpResponse("get")
+
+    def post(self, request):
+        return HttpResponse("post")
+```
+
+## 2.2 类装饰
+
+```python
+@method_decorator(func1, name="dispatch")  # 使用于全部方法
+# @method_decorator(func1, name="get")  # 使用于GET方法
+# @method_decorator(func1, name="post")  # 使用于post方法
+class RequestMethod(View):
+    """不同的请求使用不同的方法"""
+
+    def get(self, request):
+        return HttpResponse("get")
+
+    def post(self, request):
+        return HttpResponse("post")
+```
+
+## 2.3 方法装饰
+
+```python
+class RequestMethod(View):
+    """不同的请求使用不同的方法"""
+    
+	@method_decorator(func1)
+    def get(self, request):
+        return HttpResponse("get")
+
+    def post(self, request):
+        return HttpResponse("post")
+```
+
+## 2.4 url装饰
+
+原理类似2.1, 直接通过影响as_view方法来实现装饰
+
+```python
+urlpatterns = [
+    ...
+    path(r"^request_method/$"), func1(request_method.as_view())
+]
+```
+
+
 
