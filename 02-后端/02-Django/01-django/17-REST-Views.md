@@ -580,9 +580,16 @@ create_request = True if self.action == 'create' else False
 
 
 
-## 5.1 ViewSet
+## 5.1 GenericViewSet
 
-继承于`Django.APIView`, 增加了身份验证, 权限校验, 流量管理等. 视图集基类不提供action方法, 需要自己实现
+继承`GenericAPIView, ViewSetMinxin`
+
+* `ViewSetMinxin`主要用于GET等动词转换
+* `GenericAPIView` 主要用于请求分发等操作
+
+## 5.2 ViewSet
+
+继承于`ViewSetMixin, views.APIView`, 增加了身份验证, 权限校验, 流量管理等. 视图集基类不提供action方法, 需要自己实现
 
 * 视图
 
@@ -626,10 +633,78 @@ create_request = True if self.action == 'create' else False
 
   
 
-## 5.2 GenericViewSet
+## 5.2 常用视图集
 
-继承`GenericAPIView, ViewSetMinxin`
+### 5.2.1 视图集
 
-* `ViewSetMinxin`主要用于GET等动词转换
-* `GenericAPIView` 主要用于请求分发等操作
+以下视图集均继承与GenericViewSet, ViewSetMinxin
+
+| 视图集               | 支持action                 |
+| -------------------- | -------------------------- |
+| ReadOnlyModelViewSet | 支持list/单个查询          |
+| ModelViewSet         | 创建/查询(单/多)/更新/删除 |
+
+### 5.2.2 路由配置
+
+#### 5.2.2.1 SimpleRouter
+
+| URL                           | 请求方式             | Action                                 | url-name              |
+| ----------------------------- | -------------------- | -------------------------------------- | --------------------- |
+| {prefix}/                     | GET/POST             | list/create                            | {basename}-list       |
+| {prefix}/{url_path}/          | 指定方法             | 指定action                             | {basename}-{url_path} |
+| {prefix}/{lookup}/            | GET/PUT/PATCH/DELETE | retrieve/update/partial_update/destroy | {basename}-detail     |
+| {prefix}/{lookup}/{url_path}/ | 指定方法             | 指定action                             | {basename}-{url_path} |
+
+
+
+#### 5.2.2.2 DefaultRouter
+
+DefaultRouter会多附带一个默认的API根视图，返回一个包含所有列表视图的超链接响应数据。
+
+| URL                                    | 请求方式             | Action                                 | url-name              |
+| -------------------------------------- | -------------------- | -------------------------------------- | --------------------- |
+| {.format}/                             | GET                  | 自动生成的root-view                    | api-root              |
+| {prefix}/{.format}                     | GET/POST             | list/create                            | {basename}-list       |
+| {prefix}/{url_path}/{.format}          | 指定方法             | 指定action                             | {basename}-{url_path} |
+| {prefix}/{lookup}/{.format}            | GET/PUT/PATCH/DELETE | retrieve/update/partial_update/destroy | {basename}-detail     |
+| {prefix}/{lookup}/{url_path}/{.format} | 指定方法             | 指定action                             | {basename}-{url_path} |
+
+**api-root示例**
+
+![image-20200709232035352](17-REST-Views.assets/image-20200709232035352.png)
+
+### 5.2.3 实例
+
+* 视图
+
+  ```python
+  from rest_framework.viewsets import ModelViewSet
+  
+  from . import models, serializer
+  
+  class Many1ViewSet(ModelViewSet):
+      """xxx"""
+      serializer_class = serializer.Many1Serializer
+      queryset = models.Many1.objects.all()
+  ```
+
+* 路由
+
+  ```python
+  router = DefaultRouter()
+  router.register(prefix=r"test", viewset=views.Many1ViewSet)
+  urlpatterns = router.urls
+  ```
+
+* 效果
+
+  1. /test/
+
+     ![image-20200709224707703](17-REST-Views.assets/image-20200709224707703.png)
+
+  2. /test/1
+
+     ![image-20200709224734925](17-REST-Views.assets/image-20200709224734925.png)
+
+
 
