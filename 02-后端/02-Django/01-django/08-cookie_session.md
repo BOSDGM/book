@@ -82,13 +82,13 @@ pip install django-redis
   * 数据库:
 
     ```python
-    SESSION_ENGIE = "django.contrib.sessions.backends.db"
+    SESSION_ENGINE = "django.contrib.sessions.backends.db"
     ```
 
   * redis:
 
     ```python
-    SESSION_ENGIE = "django.contrib.sessions.backends.cache"
+    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
     ```
 
   * redis与数据库混合储存
@@ -96,7 +96,7 @@ pip install django-redis
     优先redis
 
     ```python
-    SESSION_ENGIE = "django.contrib.sessions.backends.cached_db"
+    SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
     ```
 
 * 配置server端缓存
