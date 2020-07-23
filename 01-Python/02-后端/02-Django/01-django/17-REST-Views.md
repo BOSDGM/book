@@ -589,6 +589,8 @@ create_request = True if self.action == 'create' else False
 
 ## 5.2 ViewSet
 
+### 5.2.1 常规使用方法
+
 继承于`ViewSetMixin, views.APIView`, 增加了身份验证, 权限校验, 流量管理等. 视图集基类不提供action方法, 需要自己实现
 
 * 视图
@@ -631,11 +633,55 @@ create_request = True if self.action == 'create' else False
   urlpatterns += router.urls
   ```
 
+
+### 5.2.2 拓展action
+
+* 视图函数
+
+  ```bash
+  class Many1ViewSet(ModelViewSet):
+      """xxx"""
+      serializer_class = serializer.Many1Serializer
+      queryset = models.Many1.objects.all()
+      # authentication_classes = (SessionAuthentication, BasicAuthentication)
   
+      @action(methods=["GET"], detail=True)  # 只允许get请求, 访问详情页面
+      def aaa(self, request, pk):
+          print(pk)
+          return JsonResponse({"aaa": "aaa"})
+  
+      @action(methods=["GET"], detail=False)  # 只允许get请求, 访问list页面
+      def bbb(self, request):
+          return JsonResponse({"bbb": "bbb"})
+  ```
 
-## 5.2 常用视图集
+* 路由
 
-### 5.2.1 视图集
+  ```bash
+  from rest_framework.routers import DefaultRouter
+  
+  from users import views
+  
+  urlpatterns = [
+  ]
+  
+  router1 = DefaultRouter()
+  router1.register(prefix=r"test", viewset=views.Many1ViewSet)
+  urlpatterns = urlpatterns + router1.urls
+  
+  ```
+
+* 页面效果
+
+  url1: /users/test/1/aaa/
+
+  url2: /users/test/bbb/ 
+
+  ![image-20200722233030857](image/17-REST-Views/image-20200722233030857.png)
+
+## 5.3 常用视图集
+
+### 5.3.1 视图集
 
 以下视图集均继承与GenericViewSet, ViewSetMinxin
 
@@ -644,9 +690,9 @@ create_request = True if self.action == 'create' else False
 | ReadOnlyModelViewSet | 支持list/单个查询          |
 | ModelViewSet         | 创建/查询(单/多)/更新/删除 |
 
-### 5.2.2 路由配置
+### 5.3.2 路由配置
 
-#### 5.2.2.1 SimpleRouter
+#### 5.3.2.1 SimpleRouter
 
 | URL                           | 请求方式             | Action                                 | url-name              |
 | ----------------------------- | -------------------- | -------------------------------------- | --------------------- |
@@ -657,7 +703,7 @@ create_request = True if self.action == 'create' else False
 
 
 
-#### 5.2.2.2 DefaultRouter
+#### 5.3.2.2 DefaultRouter
 
 DefaultRouter会多附带一个默认的API根视图，返回一个包含所有列表视图的超链接响应数据。
 
@@ -673,7 +719,7 @@ DefaultRouter会多附带一个默认的API根视图，返回一个包含所有�
 
 ![image-20200709232035352](17-REST-Views.assets/image-20200709232035352.png)
 
-### 5.2.3 实例
+### 5.3.3 实例
 
 * 视图
 
