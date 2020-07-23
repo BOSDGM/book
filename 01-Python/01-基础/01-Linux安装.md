@@ -47,6 +47,8 @@ source /etc/profile
 
 ## 1.4 测试
 
+没有报错, 则说明通过
+
 ```python
 python3.7 -c "import ssl"
 python3.7 -c "import ctypes"
