@@ -201,17 +201,41 @@ dockerfile常用参数:
 
 # 3. 镜像导出
 
-用于image镜像导出
+用于image镜像导出, 默认为tar包, 可以通过管道进行压缩.
 
 ## 3.1 参数详解
 
 ```bash
-docker image save -o 导出镜像的文件名称 image
+docker image save -o 导出镜像的文件名称(tar包) image
+```
+
+导入使用
+
+```bash
+docker image load  -i 加载的tar包镜像
 ```
 
 ## 3.2 实例
 
-```bash
-docker save -o docker_hello.tar hello:latest
-```
+### 3.2.1 压缩导出导入
+
+1. 导出
+
+   ```bash
+   [root@localhost appgess]# docker image save c4a1efa8ff89 | gzip > docker.tar.gz
+   [root@localhost appgess]# docker image save c4a1efa8ff8 -o docker.tar
+   [root@localhost appgess]# ll
+   total 1196
+   -rw-------. 1 root    root    870912 Jul 25 10:00 docker.tar
+   -rw-r--r--. 1 root    root    351990 Jul 25 09:59 docker.tar.gz
+   [root@localhost appgess]#
+   ```
+
+2. 导入
+
+   ```bash
+   [root@localhost appgess]# docker image load -i docker.tar
+   ```
+
+   
 
