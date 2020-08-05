@@ -178,18 +178,103 @@ ansible -i /etc/ansible/hosts all -m shell -a "echo appgess | passwd appgess --s
 ## 2.1 参数说明
 
 ```bash
-ansible-playbook
+ansible-playbook [选项] [参数]
+
+-name: environment
+  remote_user: root
+  hosts: all
+  roles:
+   -prev
 ```
 
 
 
+## 2.2 yml文件参数
 
+```yaml
+- name: 任务的描述信息
+  shell(-m的参数): echo 111  # 此参数只可以定义一个, 否则后面的将会覆盖前面的
+  remote_user: root # 连接主机使用的用户
+  become: yes # 是否进行用户切换
+  bacome_method: su # 切换的用户的方法, 支持su/sudo/pbrun等, 默认用sudo
+  bacome_user: appgess  # 需要切换到的用户
+  hosts: appgess  # 需要执行的hosts的group
+  vars:
+   username: nginx  # 当前task中的变量
+  roles: # 需要执行的二级yml文件, 需要放置在此文件的目录
+   - nginx  # yml位置为: ./nginx/tasks/main.yml
+   - mysql
+   - python
+  tasks:
+   - name: 模板配置
+     file: template: src=template.j2 dest=/etc/foo.conf
+  notify: 
+    - restart nginx   # -m的参数执行成功后执行此操作(只会执行一次), 没有执行成功则不会执行, notify会调用handlers中对应的名字, 支持多个
+    - restart mysqld
+  handlers:
+    - name: restart nginx
+      service(-m的参数): name=nginx state=restarted
+    - name: restart mysqld
+      service(-m的参数): name=mysqld state=restarted
+  
+```
 
+## 2.3 示例
 
+### 2.3.1 安装nginx
+
+1. 目录结构
+
+   ```bash
+   [root@localhost test]# tree
+   .
+   ├── nginx
+   │   └── tasks
+   │       └── main.yml
+   ├── prev
+   │   └── tasks
+   │       └── main.yml
+   ├── server
+   │   └── tasks
+   └── site.yml
+   ```
+
+2. 入口文件
+
+   `./site.yml`
+
+   ```bash
+   - name: nginx安装
+       remote_user: root
+       hosts: appgess
+       roles:
+         - prev
+         - nginx
+         - server
+   ```
+
+3. nginx安装
+
+   `nginx/tasks/main.yml`
+
+   ```bash
+   - name: nginx安装
+     shell: yum install xxx
+   ```
+
+4. 运行ansible
+
+   ```bash
+   ansible-playbook -i /etc/ansible/hosts ./site.yml
+   ```
+
+   
 
 # 3. Ansible-doc
 
 ## 3.1 参数说明
+
+
 
 ```bash
 ansible-doc [-l] [-s service]
