@@ -1,15 +1,161 @@
-# 1. 安装
+# 1.  依赖安装
 
-在执行安装命令之前, 先进行对应的依赖安装. 
+## 1.1 在线安装
 
-安装中出现异常,  **注意**:
+* sqlite
 
-* 必须进行缓存清理`make clean`
-* 必须从头开始.
+  ```bash
+  yum install -y sqlite sqlite-devel
+  ```
 
-Python源码编译(在线安装不做解释)安装正常流程(不报错情况)如下
+* uuid
 
-## 1.1 配置安装目录
+  ```bash
+  yum install -y uuid uuid-devel libuuid libuuid-devel
+  ```
+
+* ssl
+
+  ```bash
+  yum install -y openssl openssl-devel
+  ```
+
+* zlib
+
+  ```bash
+  yum install zib zib-devel
+  ```
+
+可以直接执行如下命令, 来解决全部问题
+
+```bash
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite sqlite-devel readline-devel tk tk-devel gdbm gdbm-devel db4-devel libpcap-devel lzma xz xz-devel libuuid libuuid-devel libffi-devel
+```
+
+## 1.2 源码安装
+
+### 1.2.1 sqlite
+
+#### 1.2.1.1 sqlite安装
+
+官方网站: [下载](https://www.sqlite.org/download.html)
+
+```bash
+wget https://www.sqlite.org/2020/sqlite-autoconf-3330000.tar.gz
+tar -zxf sqlite-autoconf-3330000.tar.gz
+cd sqlite-autoconf-3330000
+
+
+./configure --profix=/usr/local/sqlite
+make -j3
+make install
+```
+
+#### 1.2.1.2 Python编译处理
+
+如果用此方式安装了sqlite3, 编译Python需要如下进行
+
+```bash
+LD_RUN_PATH=/usr/local/sqlite/lib ./configure LDFLAGS="-L/usr/local/sqlite/lib" CPPFLAGS="-I /usr/local/sqlite/include"
+
+
+LD_RUN_PATH=/usr/local/sqlite/lib make -j3
+LD_RUN_PATH=/usr/local/sqlite/lib make install
+```
+
+### 1.2.2 ssl
+
+#### 1.2.2.1 ssl安装
+
+官方网站: [下载](https://www.openssl.org/source/)
+
+```bash
+wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
+mv openssl-1.1.1g.tar.gz /usr/local/Packages
+cd /usr/local/Packages
+tar -zxf openssl-1.1.1g.tar.gz
+
+cd openssl-1.1.1g
+./config --prefix=/usr/local/openssl
+./config -t
+make depend
+make
+make test
+make install
+```
+
+#### 1.2.2.2 Python编译处理
+
+1. 开启openssl编译
+
+   执行`make`后, 检查`Modules/Setup.dist`, 确保以下三行没有注释:
+
+   ```python
+   SSL=/usr/local
+   _ssl _ssl.c \
+           -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+           -L$(SSL)/lib -lssl -lcrypto
+   ```
+
+2. 重新执行编译安装
+
+   ```bash
+   ./configure --with-openssl=/usr/local/openssl
+   ```
+
+   
+
+   执行完成后需要看到, 才为成功:
+
+   ```bash
+   --with-openssl  yes
+   ```
+
+
+
+### 1.2.3 uuid
+
+#### 1.2.3.1 uuid安装
+
+```bash
+
+```
+
+#### 1.2.3.2 Python编译处理
+
+编辑Python的头文件
+位置: `Modules/_uuidmodule.c`
+将第11行:
+
+```bash
+  8 #include "Python.h"
+  9 #ifdef HAVE_UUID_UUID_H
+ 10 #include <uuid/uuid.h>
+ 11 #elif defined(HAVE_UUID_H)
+ 12 #include <uuid.h>
+ 13 #endif
+```
+修改为:
+```bash
+else
+```
+安装此模块后需要重新执行
+
+```bash
+./configure
+make
+make install
+```
+
+# 2. Python 安装
+
+## 2.1 在线安装
+
+
+
+## 2.2 源码安装
+
+### 2.2.1 目录配置
 
 ```python
 mkdir /usr/local/python
@@ -20,17 +166,17 @@ tar -zxf Python-3.7.2.tgz
 cd Python-3.7.2
 ```
 
-## 1.2 安装Python
+### 2.2.2 编译安装
 
 ```python
-./configure --prefix=/usr/local/Python/python37 --enable-shared --enable-optimizations # --with-openssl=/usr/local/openssl  指定安装后的openssl的目录
+./configure --prefix=/usr/local/Python/python37 --enable-shared --enable-optimizations
 
 make -j4
 
 make install
 ```
 
-## 1.3 配置环境变量
+### 2.2.3 配置环境变量
 
 ```python
 cp libpython*.so.1.0 /usr/lib
@@ -45,9 +191,9 @@ cp libpython*.so.1.0 /usr/local/lib64
 source /etc/profile
 ```
 
-## 1.4 测试
+### 2.2.4 测试
 
-没有报错, 则说明通过
+运行一下命令, 如果不报错说明正常, 否则需要重新编译安装对应的依赖, 如果不许要此功能可以不用安装
 
 ```python
 python3.7 -c "import ssl"
@@ -56,31 +202,13 @@ python3.7 -c "import zlib"
 python3.7 -c "import readline"
 python3.7 -c "import lzma"
 python3.7 -c "import uuid"
-# python3.7 -c "import tk" 这个需要安装对应模块才能测试, 可以不测
-# python3.7 -c "import sqlite" 这个需要安装对应模块才能测试, 可以不测
+python3.7 -c "import tk"
+python3.7 -c "import sqlite3"
 ```
 
-
-
-## 2. Python依赖
-
-python需要的全部依赖. 正常情况下, 安装完成, 是不会出现异常的
-
-### 2.1 Rehat
-
-```python
-yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite sqlite-devel readline-devel tk tk-devel gdbm gdbm-devel db4-devel libpcap-devel lzma xz xz-devel libuuid-devel libffi-devel
-```
-
-## 2.2 Ubuntu
-
-
-
-# 3. 依赖处理
+# 3. 错误处理
 
 ## 3.1 openssl
-
-### 3.1.1 异常
 
 * Python安装异常
 
@@ -98,58 +226,6 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite sqlite-
   ```python
   Ignoring ensurepip failure:pip required SSL/TLS
   ```
-
-### 3.1.2 Redhat
-
-安装并指定需要的openssl/LibreSSL版本
-
-本次以openssl为例进行安装
-
-* 下载
-
-  ```python
-  wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-  mv openssl-1.1.1g.tar.gz /usr/local/Packages
-  cd /usr/local/Packages
-  tar -zxf openssl-1.1.1g.tar.gz
-  ```
-
-* 安装
-
-  ```python
-  cd openssl-1.1.1g
-  ./config --prefix=/usr/local/openssl
-  ./config -t
-  make depend
-  make
-  make test
-  make install
-  ```
-
-  
-
-* 修改Python编译时的参数注意
-
-  1. 增加Python配置项`./configure --with-openssl=/usr/local/openssl`
-
-     ```python
-     --with-openssl项必须为yes
-     ```
-
-     
-
-  2. 执行`make`后, 检查`Modules/Setup.dist`, 确保以下三行没有注释:
-
-     ```python
-     SSL=/usr/local
-     _ssl _ssl.c \
-             -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
-             -L$(SSL)/lib -lssl -lcrypto
-     ```
-
-     
-
-  
 
 ## 3.2 libffi
 
