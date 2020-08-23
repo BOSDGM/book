@@ -2,7 +2,7 @@
 
 ## 1.1 下载
 
-官方下载地址: [Python](https://www.python.org/downloads/windows/ )
+官方下载地址: [Python](https://www.python.org/downloads/windows/)
 
 ## 1.2 安装
 
@@ -19,4 +19,3 @@
   修改操作如下, 这样运行python2.6输入python25, python2.7输入python27等即可使用
 
   ![img](image/02-windows%E5%AE%89%E8%A3%85/436211bf-ee51-4f74-b44d-736f95a4f4af.png)
-[https://www.python.org/downloads/windows/ ]: 
