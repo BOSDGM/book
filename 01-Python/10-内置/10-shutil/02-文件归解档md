@@ -150,30 +150,7 @@ def make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0, dry
   import logging.config
   
   config_logging = {
-      "version": 1,
-      "disable_existing_loggers": False,
-      "formatters": {
-          "simple": {
-              "format": "[%(levelname).4s] %(asctime)s P_%(process)d_T_%(thread)d <%(module)s:%(lineno)d>: %(message)s"
-          }
-      },
-      "handlers": {
-          "console": {
-              "level": "DEBUG",
-              "stream": "ext://sys.stdout",
-              "class": "logging.StreamHandler",
-              "formatter": "simple"
-          }
-      },
-      "loggers": {
-          "info": {
-              "level": "INFO",
-              "handlers": [
-                  "console"
-              ],
-              "propagate": True
-          }
-      }
+      # 此处为logger的配置, 由于比较多, 已经省略
   }
   
   logging.config.dictConfig(config_logging)
@@ -192,7 +169,7 @@ def make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0, dry
   
   shutil.make_archive(base_name, format_type, root_dir, base_dir, verbose, dry_run, owner, group, logger)
   ```
-
+  
 * 压缩结果
 
   ```bash
