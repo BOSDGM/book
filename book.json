@@ -8,7 +8,6 @@
         "back-to-top-button",
         "chapter-fold",
         "splitter",
-        "prism", "-highlight",
-	"summary", "toggle-chapters", "theme-comscore"
+        "prism", "-highlight"
     ]
 }
