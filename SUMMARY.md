@@ -118,6 +118,9 @@
     - 10 Shutil
       * [01-文件目录操作](01-Python/10-内置/10-shutil/01-文件目录操作.md)
       * [03-终端操作](01-Python/10-内置/10-shutil/03-终端操作.md)
+    - [20 Json](01-Python/10-内置/20-json/README.md)
+      * [01 Json](01-Python/10-内置/20-json/01-json.md)
+    - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
   - 11-三方
     - 01 Rpyc
       * [01-简介](01-Python/11-三方/01-rpyc/01-简介.md)
