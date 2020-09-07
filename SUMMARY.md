@@ -136,6 +136,10 @@
     - 03 Celery
       * [01 Celery](01-Python/11-三方/03-celery/01-celery.md)
       * [02-Django使用](01-Python/11-三方/03-celery/02-Django使用.md)
+    - 10 Paramiko
+      * [01-常见错误](01-Python/11-三方/10-paramiko/01-常见错误.md)
+    - 20 Pysnmp
+      * [01-实例](01-Python/11-三方/20-pysnmp/01-实例.md)
   - 12-项目
     - 01-系统监控
       * [01-cpu与内存](01-Python/12-项目/01-系统监控/01-cpu与内存.md)
@@ -195,6 +199,9 @@
       - 02 Ubuntu
         * [01-apt源](04-OS/02-linux/09-软件及源/02-Ubuntu/01-apt源.md)
         * [02-apt软件操作](04-OS/02-linux/09-软件及源/02-Ubuntu/02-apt软件操作.md)
+      - 10-依赖处理
+        * [01 Glibc](04-OS/02-linux/09-软件及源/10-依赖处理/01-glibc.md)
+        * [02 Gcc](04-OS/02-linux/09-软件及源/10-依赖处理/02-gcc.md)
     - 10-系统优化
       * [09-系统优化](04-OS/02-linux/10-系统优化/09-系统优化.md)
     - 11 Shell
@@ -218,6 +225,10 @@
     * [03-Nginx调优](07-工具/01-Nginx/03-Nginx调优.md)
   - 02 Gunicorn
     * [01 Helloword](07-工具/02-Gunicorn/01-helloword.md)
+  - 03 Redis
+    * [10-常见错误](07-工具/03-Redis/10-常见错误.md)
+  - 04 Mongo DB
+    * [10-常见错误](07-工具/04-MongoDB/10-常见错误.md)
   - 05 My SQL
     * [01-安装](07-工具/05-MySQL/01-安装.md)
     * [05-日志操作](07-工具/05-MySQL/05-日志操作.md)
@@ -245,6 +256,9 @@
     * [03-配置文件](07-工具/10-Supervisord/03-配置文件.md)
   - 11 Open VPN
     * [01-搭建](07-工具/11-OpenVPN/01-搭建.md)
+  - 12 SSR
+    * [01 Ssr](07-工具/12-SSR/01-ssr.md)
+    * [02 Ss](07-工具/12-SSR/02-ss.md)
   - 20 Ansible
     * [01-安装](07-工具/20-Ansible/01-安装.md)
     * [02-ansible命令](07-工具/20-Ansible/02-ansible命令.md)

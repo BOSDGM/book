@@ -140,3 +140,15 @@ ctrl+x
 ```
 
 设置Python解释器为`Python_root.sh`即可
+
+## 4.2 禁用test模式
+
+![img](image/05-PyCharm/7080f8ca-401a-4916-b306-00d242b825bc.png)
+
+然后删除当前运行的配置:
+
+![img](image/05-PyCharm/edc8c950-9ce4-48dd-9a87-cbca813dcebc.png)
+
+![img](image/05-PyCharm/e617050a-f507-4fcd-b198-5411fcf0bd04.png)
+
+然后重新运行即可

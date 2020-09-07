@@ -49,5 +49,6 @@ def load(fp, *, cls=None, object_hook=None, parse_float=None,
         parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
 ```
 * fp: `file-like object`, 文本类型的流对象, 只需含有`read()`方法即可
+* 其他方法同上
 
 # 3. 常量
