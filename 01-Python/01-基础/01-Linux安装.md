@@ -69,20 +69,40 @@ LD_RUN_PATH=/usr/local/sqlite/lib make install
 
 官方网站: [下载](https://www.openssl.org/source/)
 
-```bash
-wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-mv openssl-1.1.1g.tar.gz /usr/local/Packages
-cd /usr/local/Packages
-tar -zxf openssl-1.1.1g.tar.gz
+* 下载
 
-cd openssl-1.1.1g
-./config --prefix=/usr/local/openssl
-./config -t
-make depend
-make
-make test
-make install
-```
+  ```bash
+  wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz
+  mv openssl-1.1.1g.tar.gz /usr/local/Packages
+  cd /usr/local/Packages
+  tar -zxf openssl-1.1.1g.tar.gz
+  ```
+
+* 编译安装
+
+  ```bash
+  cd openssl-1.1.1g
+  ./config --prefix=/usr/local/openssl
+  ./config -t
+  make depend
+  make
+  make test
+  make install
+  ```
+
+* 创建依赖关系
+
+  ```bash
+  cp libcrypto.so.1.1 /usr/local/lib
+  cp libcrypto.so.1.1 /usr/local/lib64
+  cp libcrypto.so.1.1 /usr/lib
+  cp libcrypto.so.1.1 /usr/lib64
+  
+  cp libssl.so.1.1 /usr/local/lib
+  cp libssl.so.1.1 /usr/local/lib64
+  cp libssl.so.1.1 /usr/lib
+  cp libssl.so.1.1 /usr/lib64
+  ```
 
 #### 1.2.2.2 Python编译处理
 
