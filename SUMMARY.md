@@ -112,11 +112,14 @@
         * [17 REST Views](01-Python/02-后端/02-Django/01-django/17-REST-Views.md)
         * [18 REST Request Response](01-Python/02-后端/02-Django/01-django/18-REST-request-response.md)
         * [19 REST Limiter](01-Python/02-后端/02-Django/01-django/19-REST-Limiter.md)
-  - 10-内置
-    - 01 Re
-      * [00 README](01-Python/10-内置/01-re/00-README.md)
+  - [10-内置](01-Python/10-内置/README.md)
+    - [01 Re](01-Python/10-内置/01-re/README.md)
       * [01-正则规则](01-Python/10-内置/01-re/01-正则规则.md)
       * [02-正则匹配](01-Python/10-内置/01-re/02-正则匹配.md)
+    - [02 Logging](01-Python/10-内置/02-logging/README.md)
+      * [01 Logging](01-Python/10-内置/02-logging/01-logging.md)
+    - [05 Functools](01-Python/10-内置/05-functools/README.md)
+      * [10-异常处理](01-Python/10-内置/05-functools/10-异常处理.md)
     - 10 Shutil
       * [01-文件目录操作](01-Python/10-内置/10-shutil/01-文件目录操作.md)
       * [03-终端操作](01-Python/10-内置/10-shutil/03-终端操作.md)

@@ -90,6 +90,29 @@ LD_RUN_PATH=/usr/local/sqlite/lib make install
   make install
   ```
 
+* 编译过程中出错解决
+
+  * 错误一
+
+    ```bash
+    Parse errors: No plan found in TAP output
+    ```
+
+    缺少perl相关依赖, 处理如下
+
+    ```bash
+    yum  install  perl-CPAN
+    perl  -MCPAN  -e  shell
+    ```
+
+    然后页面出现如下
+
+    ![image-20200909162239982](image/01-Linux%E5%AE%89%E8%A3%85/image-20200909162239982.png)
+
+    然后一路回车即可, 直至页面出现如下信息, 即为完成, 输入`exit`退出即可
+
+    ![image-20200909162407834](image/01-Linux%E5%AE%89%E8%A3%85/image-20200909162407834.png)
+
 * 创建依赖关系
 
   ```bash
