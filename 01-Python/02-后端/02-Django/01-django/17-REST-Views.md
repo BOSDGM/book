@@ -752,5 +752,7 @@ DefaultRouter会多附带一个默认的API根视图，返回一个包含所有�
 
      ![image-20200709224734925](17-REST-Views.assets/image-20200709224734925.png)
 
+# 6. rest-framework继承关系图
 
+![View_serializer](image/17-REST-Views/View_serializer.png)
 

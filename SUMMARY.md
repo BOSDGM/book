@@ -116,6 +116,7 @@
         * [17 REST Views](01-Python/02-后端/02-Django/01-django/17-REST-Views.md)
         * [18 REST Request Response](01-Python/02-后端/02-Django/01-django/18-REST-request-response.md)
         * [19 REST Setting](01-Python/02-后端/02-Django/01-django/19-REST-setting.md)
+        * [20 Template](01-Python/02-后端/02-Django/01-django/20-template.md)
         * [30-项目本地化](01-Python/02-后端/02-Django/01-django/30-项目本地化.md)
   - [10-内置](01-Python/10-内置/README.md)
     - [01 Re](01-Python/10-内置/01-re/README.md)
