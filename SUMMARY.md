@@ -128,6 +128,7 @@
     - 10 Shutil
       * [01-文件目录操作](01-Python/10-内置/10-shutil/01-文件目录操作.md)
       * [03-终端操作](01-Python/10-内置/10-shutil/03-终端操作.md)
+    - [11 Base 64](01-Python/10-内置/11-base64/README.md)
     - [20 Json](01-Python/10-内置/20-json/README.md)
       * [01 Json](01-Python/10-内置/20-json/01-json.md)
     - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
@@ -241,8 +242,10 @@
     * [10-常见错误](07-工具/04-MongoDB/10-常见错误.md)
   - 05 My SQL
     * [01-安装](07-工具/05-MySQL/01-安装.md)
-    * [04-主从同步](07-工具/05-MySQL/04-主从同步.md)
-    * [05-日志操作](07-工具/05-MySQL/05-日志操作.md)
+    * [02 CURD](07-工具/05-MySQL/02-CURD.md)
+    * [05-账号密码操作](07-工具/05-MySQL/05-账号密码操作.md)
+    * [10-主从同步](07-工具/05-MySQL/10-主从同步.md)
+    * [11-日志操作](07-工具/05-MySQL/11-日志操作.md)
   - 06 Docker
     * [01-安装](07-工具/06-Docker/01-安装.md)
     * [02-docker镜像](07-工具/06-Docker/02-docker镜像.md)
