@@ -101,7 +101,7 @@
       - [01 Django](01-Python/02-后端/02-Django/01-django/01-django.md)
         * [02 Urls](01-Python/02-后端/02-Django/01-django/02-urls.md)
         * [03 Views](01-Python/02-后端/02-Django/01-django/03-views.md)
-        * [04-中间件](01-Python/02-后端/02-Django/01-django/04-中间件.md)
+        * [04 Middleware](01-Python/02-后端/02-Django/01-django/04-middleware.md)
         * [05 Setting](01-Python/02-后端/02-Django/01-django/05-setting.md)
         * [06 Request](01-Python/02-后端/02-Django/01-django/06-request.md)
         * [07 Response](01-Python/02-后端/02-Django/01-django/07-response.md)

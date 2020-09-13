@@ -32,9 +32,28 @@
 | `%(threadName)s` | 线程名称                                                 |
 | `%(process)d`    | 进程号                                                   |
 | `%(message)s`    | 日志信息                                                 |
-## 2.2 日志配置
+## 2.2 日志处理器
 
-### 2.2.1 普通配置
+| 处理器                | 作用                                       |
+| --------------------- | ------------------------------------------ |
+| `StreamHandler`       | 输出到流, 例如: `sys.stderr`, `sys.stdout` |
+| `FileHandler`         | 输出到文件                                 |
+| `BaseRotatingHandler` | 基本日志滚动                               |
+| `RotatingHandler`     | 可设置日志量最大值的日志滚动               |
+| `TimeRotatingHandler` | 可设置定时日志滚动                         |
+| `SocketHandler`       | 远程(TCP/IP)日志记录                       |
+| `DatagramHandler`     | 远程(UDP)日志记录                          |
+| `SMTPHandler`         | 远程(SMTP)日志记录                         |
+| `NTEventLogHandler`   | 远程(windows NT/ 2000/XP 事件)日志记录     |
+| `HTTPHandler`         | 远程(HTTP的GET/POST)日志记录               |
+| `SysLogHandler`       | 输出到系统日志中                           |
+| `MemoryHandler`       | 输出到指定内存buffer中                     |
+
+
+
+## 2.3 日志配置
+
+### 2.3.1 普通配置
 
 ```Python
 import logging
@@ -66,7 +85,7 @@ logging.log(logging.ERROR, "This is a error log.")
 logging.log(logging.CRITICAL, "This is a critical log.")
 ```
 
-### 2.2.2 字典配置
+### 2.3.2 字典配置
 
 ```Python
 import logging.config
