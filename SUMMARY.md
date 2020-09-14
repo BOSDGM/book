@@ -128,6 +128,8 @@
       * [01 Logging](01-Python/10-内置/02-logging/01-logging.md)
     - [05 Functools](01-Python/10-内置/05-functools/README.md)
       * [10-异常处理](01-Python/10-内置/05-functools/10-异常处理.md)
+    - [09 Collections](01-Python/10-内置/09-collections/README.md)
+      * [01 Collections](01-Python/10-内置/09-collections/01-collections.md)
     - 10 Shutil
       * [01-文件目录操作](01-Python/10-内置/10-shutil/01-文件目录操作.md)
       * [03-终端操作](01-Python/10-内置/10-shutil/03-终端操作.md)
