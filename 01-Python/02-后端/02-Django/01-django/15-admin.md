@@ -140,7 +140,7 @@ class SomeTable(db_model.Models):
 
 * 默认界面
 
-  ![image-20200621235545157](10-admin.assets/image-20200621235545157.png)
+  ![image-20200621235545157](image/15-admin/image-20200621235545157.png)
 
 * StackedInline
 
@@ -169,7 +169,7 @@ class SomeTable(db_model.Models):
 
   编辑后页面
 
-  ![image-20200622113841871](10-admin.assets/image-20200622113841871.png)
+  ![image-20200622113841871](image/15-admin/image-20200622113841871.png)
 
 * TabularInline
 
@@ -179,7 +179,7 @@ class SomeTable(db_model.Models):
 
   编辑后页面
 
-  ![image-20200622113946731](10-admin.assets/image-20200622113946731.png)
+  ![image-20200622113946731](image/15-admin/image-20200622113946731.png)
 
 
 
@@ -193,7 +193,7 @@ class SomeTable(db_model.Models):
 
   前后对比
 
-  ![image-20200622114922603](10-admin.assets/image-20200622114922603.png)
+  ![image-20200622114922603](image/15-admin/image-20200622114922603.png)
 
 * header
 
@@ -203,7 +203,7 @@ class SomeTable(db_model.Models):
 
   前后对比
 
-  ![image-20200622115302008](10-admin.assets/image-20200622115302008.png)
+  ![image-20200622115302008](image/15-admin/image-20200622115302008.png)
 
 * index title
 
@@ -213,7 +213,7 @@ class SomeTable(db_model.Models):
 
   前后对比
 
-  ![image-20200622115431560](10-admin.assets/image-20200622115431560.png)
+  ![image-20200622115431560](image/15-admin/image-20200622115431560.png)
 
   
 
@@ -248,7 +248,7 @@ class SomeTable(db_model.Models):
 
 页面效果
 
-![image-20200622120709332](10-admin.assets/image-20200622120709332.png)
+![image-20200622120709332](image/15-admin/image-20200622120709332.png)
 
 ### 2.2.2 富文本
 

@@ -86,7 +86,7 @@ urlpatterns += router.urls
 
 ## 2.5 访问接口
 
-![image-20200622202939906](11-REST.assets/image-20200622202939906.png)
+![image-20200622202939906](image/16-REST-Serializer/image-20200622202939906.png)
 
 # 3. 序列化对象
 
@@ -222,7 +222,7 @@ print(ser.data)
 
 * 数据展示
 
-  ![image-20200622215759387](11-REST.assets/image-20200622215759387.png)
+  ![image-20200622215759387](image/16-REST-Serializer/image-20200622215759387.png)
 
 #### 关联对象的`__str__`
 
@@ -243,7 +243,7 @@ print(ser.data)
 
 * 数据展示
 
-  ![image-20200622220250257](11-REST.assets/image-20200622220250257.png)
+  ![image-20200622220250257](image/16-REST-Serializer/image-20200622220250257.png)
 
 #### 关联对象的url
 
@@ -268,7 +268,7 @@ print(ser.data)
 
 * 效果展示
 
-  ![image-20200622222259989](11-REST.assets/image-20200622222259989.png)
+  ![image-20200622222259989](image/16-REST-Serializer/image-20200622222259989.png)
 
 #### 关联对象的指定字段
 
@@ -287,7 +287,7 @@ print(ser.data)
 
 * 效果展示
 
-  ![image-20200622222502058](11-REST.assets/image-20200622222502058.png)
+  ![image-20200622222502058](image/16-REST-Serializer/image-20200622222502058.png)
 
 #### 关联对象的序列化器
 
@@ -308,7 +308,7 @@ print(ser.data)
 
 * 效果展示
 
-  ![image-20200622222708861](11-REST.assets/image-20200622222708861.png)
+  ![image-20200622222708861](image/16-REST-Serializer/image-20200622222708861.png)
 
 #### 自定义序列化信息
 
@@ -338,7 +338,7 @@ print(ser.data)
 
 * 效果展示
 
-  ![image-20200622223233731](11-REST.assets/image-20200622223233731.png)
+  ![image-20200622223233731](image/16-REST-Serializer/image-20200622223233731.png)
 
 ## 4.2 反序列化
 

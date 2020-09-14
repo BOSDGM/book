@@ -717,7 +717,7 @@ DefaultRouter会多附带一个默认的API根视图，返回一个包含所有�
 
 **api-root示例**
 
-![image-20200709232035352](17-REST-Views.assets/image-20200709232035352.png)
+![image-20200709232035352](image/17-REST-Views/image-20200709232035352.png)
 
 ### 5.3.3 实例
 
@@ -746,11 +746,11 @@ DefaultRouter会多附带一个默认的API根视图，返回一个包含所有�
 
   1. /test/
 
-     ![image-20200709224707703](17-REST-Views.assets/image-20200709224707703.png)
+     ![image-20200709224707703](image/17-REST-Views/image-20200709224707703.png)
 
   2. /test/1
 
-     ![image-20200709224734925](17-REST-Views.assets/image-20200709224734925.png)
+     ![image-20200709224734925](image/17-REST-Views/image-20200709224734925.png)
 
 # 6. rest-framework继承关系图
 
