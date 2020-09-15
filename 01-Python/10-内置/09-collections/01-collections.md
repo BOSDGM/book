@@ -301,6 +301,10 @@ print(list(reversed(od)))
 
 ## 3.4 defaultdict
 
+继承于`dict`, 增加了字典的缺省值功能
+
+
+
 ## 3.5 UserDict
 
 

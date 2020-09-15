@@ -46,7 +46,7 @@ tar -zxf sqlite-autoconf-3330000.tar.gz
 cd sqlite-autoconf-3330000
 
 
-./configure --profix=/usr/local/sqlite
+./configure --prefix=/usr/local/sqlite
 make -j3
 make install
 ```
@@ -312,7 +312,7 @@ python3.7 -c "import sqlite3"
 
 ### 3.3.2 Redhat
 
-![gcc rpm包](./01-Python.assets/gcc_rpm.tar.gz)
+gcc rpm包: [下载](./01-Python.assets/gcc_rpm.tar.gz)
 
 ```python
 rpm -ivh lib64gmp3-4.3.1-1mdv2010.0.x86_64.rpm
