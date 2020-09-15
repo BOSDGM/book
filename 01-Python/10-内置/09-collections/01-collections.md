@@ -178,6 +178,22 @@ Test(x=5, y=7, z=2)
   {'balance': 0}
   ```
 
+### 1.1.4 常用功能
+
+* 像调用属性一样处理字典
+
+  ```python
+  Test = namedtuple("Test", "a,b,c")
+  nt = Test(1, 2, 3)
+  print(nt.a, nt.b, nt.c)
+  ```
+
+  输出
+
+  ```bash
+  1 2 3
+  ```
+
   
 
 
@@ -185,6 +201,8 @@ Test(x=5, y=7, z=2)
 # 2. list
 
 ## 2.1 deque
+
+双端队列, 
 
 ## 2.2 UserList
 
@@ -195,6 +213,122 @@ Test(x=5, y=7, z=2)
 # 3. dict
 
 ## 3.1 ChainMap
+
+`dict`的子类, 合并多个字典为一个字典. 只是链接映射关系, 所以比`update`要快
+
+```python
+def __init__(self, *maps)
+	return dict
+```
+
+* maps: dict, 多个字典
+
+由于继承`dict`, 拥有全部`dict`功能, 并添加了部分功能
+
+### 3.1.1 新增功能
+
+#### maps
+
+存储的链接列表, 可以被修改.
+
+* 实例
+
+  ```python
+  a = {"a": 1, "b": 2}
+  b = {1: "c", 2: "d"}
+  
+  cm = ChainMap(a, b)
+  print(cm.maps)
+  ```
+
+* 输出
+
+  ```bash
+  [{'a': 1, 'b': 2}, {1: 'c', 2: 'd'}]
+  ```
+
+#### new_child
+
+在连接首部插入字典的链接, 并返回
+
+```Python
+def new_child(self, m):
+    return chainmap
+```
+
+* m: mapping, 字典
+
+实例
+
+```Python
+a = {"a": 1, "b": 2}
+b = {1: "c", 2: "d"}
+c = {"t": [1, 2], "f": {3, 4}}
+
+cm = ChainMap(a, b)
+print(cm.new_child(c))
+```
+
+输出
+
+```bash
+ChainMap({'t': [1, 2], 'f': {3, 4}}, {'a': 1, 'b': 2}, {1: 'c', 2: 'd'})
+```
+
+#### parents
+
+输出第一个dict
+
+* 实例
+
+  ```python
+  a = {"a": 1, "b": 2}
+  b = {1: "c", 2: "d"}
+  cm = ChainMap(a, b)
+  print(cm)
+  print(cm.parents)
+  ```
+
+* 输出
+
+  ```bash
+  ChainMap({'a': 1, 'b': 2}, {1: 'c', 2: 'd'})
+  ChainMap({1: 'c', 2: 'd'})
+  ```
+
+### 3.1.2 常用功能
+
+* 组合字典
+
+  ```Python
+  a = {"a": 1, "b": 2}
+  b = {1: "c", 2: "d"}
+  for t in ChainMap(a, b).items():
+      print(t)
+  ```
+
+  输出
+
+  ```Python
+  (1, 'c')
+  (2, 'd')
+  ('a', 1)
+  ('b', 2)
+  ```
+
+* 系统变量查找顺序
+
+  系统变量查找顺序就是利用类似的方式在寻找的. 模拟代码
+
+  ```python
+  from collections import *
+  
+  import builtins
+  pylookup = ChainMap(locals(), globals(), vars(builtins))
+  print(pylookup)
+  ```
+
+  
 
 ## 3.2 Counter
 
@@ -224,7 +358,7 @@ def __init__([items]):
 
 支持`dict`中的全部功能, 并拓展了部分功能
 
-### 3.3.1 拓展`dict`功能
+### 3.3.1 新增功能
 
 #### popitem
 
@@ -302,6 +436,97 @@ print(list(reversed(od)))
 ## 3.4 defaultdict
 
 继承于`dict`, 增加了字典的缺省值功能
+
+```Python
+def __init__([default_factory=None], **kwargs)
+	return defaultdict
+```
+
+* default_factory: 可调用的函数/对象/None, 第一个参数为缺省值
+* **kwargs: 其他参数, 用于构建字典的key/value对
+
+### 3.4.1 新增属性
+
+#### \__missing__
+
+自动赋予缺省值. 只能用切片, 不能用`.get()`, 否则不能获取到缺省值
+
+```Python
+def __missing__(self, key):
+    self[key] = default_factory()
+```
+
+* key: key, 需要赋予缺省值的可以
+
+示例
+
+```python
+class DD(defaultdict):
+
+    def __missing__(self, key):
+        value = self.default_factory()
+        print("当前key值: ", key)
+        self[key] = value
+        return value
+
+d = DD(int)
+print("切片正常获取到缺省值: ", d[1])
+print("get不能获取到缺省值: ", d.get(2))
+```
+
+输出
+
+```bash
+当前key值:  1
+切片正常获取到缺省值:  0
+get不能获取到缺省值:  None
+```
+
+#### default_factory
+
+存储用来提供缺省值的函数
+
+* 示例
+
+  ```python
+  def test1():
+      return 2
+  
+  dd = defaultdict(test1)
+  print(dd.default_factory.__name__, dd.default_factory)
+  ```
+
+  
+
+* 输出
+
+  ```bash
+  test1 <function test1 at 0x000001FEBC66D378>
+  ```
+
+### 3.4.2 常用功能
+
+* 统计
+
+  ```python
+  dd = defaultdict(int)
+  count_str = "ashomoasoiuhoie"
+  
+  for s in count_str:
+      dd[s] += 1
+  
+  print(dd)
+  ```
+
+  输出
+
+  ```bash
+  defaultdict(<class 'int'>, {'a': 2, 's': 2, 'h': 2, 'o': 4, 'm': 1, 'i': 2, 'u': 1, 'e': 1})
+  ```
+
+  
+
+
 
 
 
