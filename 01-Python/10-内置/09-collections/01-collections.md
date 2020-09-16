@@ -52,7 +52,7 @@ def namedtuple(typename, field_names, rename=False, defaults=None, module=None)
 
 ### 1.1.2 方法
 
-#### \_make
+#### \_make()
 
 类方法, 将可迭代对象强转为`namedtuple`中的value
 
@@ -81,7 +81,7 @@ Test(x=5, y=1, z=2)
 Test(x=7, y=8, z=9)
 ```
 
-#### \_asdict
+#### \_asdict()
 
 * < Python3.8: 将`namedtuple`转化为`OrderedDict`, 即有序字典
 * \>=Python3.8: 返回`dict`
@@ -110,7 +110,7 @@ Test(x=5, y=1, z=2)
 OrderedDict([('x', 5), ('y', 1), ('z', 2)])
 ```
 
-#### \_replace
+#### \_replace()
 
 修改并生成一个新的`namedtuple`
 
@@ -202,11 +202,226 @@ Test(x=5, y=7, z=2)
 
 ## 2.1 deque
 
-双端队列, 
+双端队列,  是通过`queue`队列实现的. 支持线程安全.
+
+```Python
+def __init__(self, iterable=None, maxlen=None)
+	return queue
+```
+
+* iterable: 需要转换为双端队列的可迭代对象
+
+* maxlen: int/None, 限制队列的长度, 超过长度时, 再次添加会从队列的另一端弹出一个. 可以利用这个特性实现`tail`功能
+
+示例一
+
+  ```Python
+# 查看后几行: tail -n 10 xx.txt
+from collections import *
+
+def tail(filename, n=5):
+    with open(filename, "r", encoding="utf-8") as f:
+        print("".join(deque(f, n)))
+
+tail(r"E:\project\test\t_ftp\t_ftp.py", 10)
+  ```
+
+  示例二
+
+```Python
+# 轮询遍历
+abc, d, ef  --> a d e b f c
+
+def roundrobin(*iterable):
+    it = iter(iterable)
+    d = deque(itertools.islice(it, n-1))
+    d.appendleft(0)
+    s = sum(d)
+    for elem in it:
+        s += elem - d.popleft()
+        d.append(elem)
+        yield s / n
+
+print(list(roundrobin(["abc", "d", "ef"])))
+```
+
+
+
+支持的列表方法如下:
+
+* `len()`
+* `reversed(d)`
+* `copy.copy(d)`
+* `copy.deepcopy(d)`
+* `x in d`
+* `d1 + d2`
+* `for x in d`
+* 切片
+* `d1 * 2`
+
+**注**: 由于此节的方法全部为重复方法, 暂时不举例说明
+
+### 2.1.1 方法
+
+#### append()
+
+从右侧添加元素
+
+```Python
+def append(self, x)
+return None
+```
+
+#### appendleft()
+
+从左侧添加元素
+
+```Python
+def appendleft(self, x)
+return None
+```
+
+#### clear()
+
+清空元素
+
+```Python
+def clear(self)
+	return None
+```
+
+#### copy()
+
+浅copy
+
+```Python
+def copy(self):
+    return deque
+```
+
+#### count()
+
+统计某个元素的个数
+
+```Python
+def count(self, x):
+    return int
+```
+
+#### extend()
+
+从右侧批量添加元素
+
+```Python
+def extend(self, iterable):
+    return None
+```
+
+#### extendleft()
+
+从右侧批量添加元素
+
+```Python
+def extendleft(self, iterable):
+    return None
+```
+
+#### index()
+
+找出某个元素在队列的位置. 
+
+```Python
+def index(self, x, start, stop):
+    return int/ValueError
+```
+
+* x: obj, 需要查找的元素
+* start: int, 查找的起始位置
+* stop: int, 查找的终止位置
+
+#### pop()
+
+删除最右侧的元素, 并返回
+
+```python
+def pop(self):
+    return obj/IndexError
+```
+
+#### popleft()
+
+删除最左侧的元素, 并返回
+
+```Python
+def popleft(self):
+    return obj/IndexError
+```
+
+#### reverse()
+
+翻转队列
+
+```Python
+def reverse(self):
+    return None
+```
+
+#### rotate()
+
+队列向右移动.  等价于: 循环删除右边的元素, 并添加到左边.   负数反过来. 
+
+```Python
+def rotate(self, n=1):
+    return None
+```
+
+* n: int, 需要移动几个元素. 
+
+示例
+
+```Python
+from collections import *
+
+d = deque([1, 2])
+d.rotate(3)  # 队列整体移动3次
+print(d)
+```
+
+输出
+
+```Python
+deque([2, 1])
+```
+
+### 2.1.2 属性
+
+#### maxlen
+
+获取队列的上限.  如果没有限制, 则为`None`
 
 ## 2.2 UserList
 
+`UserList`与`list`对象基本相同, 一般继承并改写`List`时最好是使用`UserList`, 这样`list`还可以用于其他用途, 不会出现冲突.
+
+```Python
+def __init__(list):
+    return UserList
+```
+
+* `self.data`: 用于存储数据的变量
+
 ## 2.3 UserString
+
+同`UserString`
+
+```Python
+def __init__(sting):
+    return UserString
+```
+
+* self.data: 用于存储str的变量
+
+
 
 
 
@@ -247,7 +462,7 @@ def __init__(self, *maps)
   [{'a': 1, 'b': 2}, {1: 'c', 2: 'd'}]
   ```
 
-#### new_child
+#### new_child()
 
 在连接首部插入字典的链接, 并返回
 
@@ -332,6 +547,137 @@ ChainMap({'t': [1, 2], 'f': {3, 4}}, {'a': 1, 'b': 2}, {1: 'c', 2: 'd'})
 
 ## 3.2 Counter
 
+`dict`的子类, 用于数据的统计.
+
+```python
+def __init__([iterable or mapping]):
+    return Counter
+```
+
+**注意**:
+
+* Counter没有实现字典的`fromkey`函数.
+
+### 3.2.1  新增功能
+
+#### update()
+
+增加需要统计的数据
+
+```python
+def update(self, __m, **kwargs)
+	return None
+```
+
+* \_\_m: mapping/iterable, 需要新增统计的数据, 如果为mapping, 则是增加. 不会直接使用mapping中的值
+* \*\*kwargs:  类似dict传值.
+
+示例
+
+```Python
+from collections import *
+
+c_a = ["a", "b", "c"]
+c_b = "abcesoiamo"
+c_d = {"a": 3, "c": 2}
+c = Counter(c_a)
+c.update(c_d)
+c.update(c_b, b=5)
+print(c)
+```
+
+输出
+
+```bash
+Counter({'b': 7, 'a': 6, 'c': 4, 'o': 2, 'e': 1, 's': 1, 'i': 1, 'm': 1})
+```
+
+#### elements()
+
+按照顺序将`key`(重复的将在一起)依次排列出来
+
+```Python
+def elements(self):
+    return iterable
+```
+
+实例
+
+```Python
+from collections import *
+
+c_b = "abcesoiamo"
+c = Counter(c_b)
+print(list(c.elements()))
+```
+
+输出
+
+```Python
+['a', 'a', 'b', 'c', 'e', 's', 'o', 'o', 'i', 'm']
+```
+
+#### most_common()
+
+从高到低截取最大的`n`个key/value. 相同时会按照加入的顺序排序.
+
+```Python
+def most_common(self, n):
+    return [(k1, v1)...]
+```
+
+实例
+
+```python
+from collections import *
+
+c_b = "abracadabra"
+c = Counter(c_b)
+print(list(c.most_common(3)))
+```
+
+输出
+
+```python
+[('a', 5), ('b', 2), ('r', 2)]
+```
+
+#### subtract()
+
+与`update`相反的操作. 减去元素
+
+```python
+@overload
+def subtract(self, __mapping:)
+```
+
+* \_\_mapping: mapping/iterable, 需要减去的次数. 或者元素
+
+实例
+
+```Python
+from collections import *
+
+c_b = "abracadabra"
+c = Counter(c_b)
+c.subtract("abc")
+print(c)
+```
+
+输出
+
+```Python
+Counter({'a': 4, 'r': 2, 'b': 1, 'd': 1, 'c': 0})
+```
+
+
+
+
+
+
+
+
+
 ## 3.3 OrderedDict
 
 有序字典, `dict`的子类. 由于Python3.7以上版本, `dict`做了变动, 支持了排序功能
@@ -360,7 +706,7 @@ def __init__([items]):
 
 ### 3.3.1 新增功能
 
-#### popitem
+#### popitem()
 
 依照`FIFO`, 指定左边或者右边弹栈
 
@@ -388,7 +734,7 @@ print(od.popitem(True))
 ('z', 4)
 ```
 
-#### move_to_end
+#### move_to_end()
 
 将某个键值移动到末尾
 
@@ -412,7 +758,7 @@ print(od)
 OrderedDict([('x', 2), ('z', 4), ('y', 3)])
 ```
 
-#### reversed
+#### reversed()
 
 利用`__reversed__()`翻转字典, 返回值为`iter`
 
@@ -447,7 +793,7 @@ def __init__([default_factory=None], **kwargs)
 
 ### 3.4.1 新增属性
 
-#### \__missing__
+#### \__missing__()
 
 自动赋予缺省值. 只能用切片, 不能用`.get()`, 否则不能获取到缺省值
 
@@ -524,13 +870,15 @@ get不能获取到缺省值:  None
   defaultdict(<class 'int'>, {'a': 2, 's': 2, 'h': 2, 'o': 4, 'm': 1, 'i': 2, 'u': 1, 'e': 1})
   ```
 
-  
-
-
-
-
 
 ## 3.5 UserDict
 
+`UserDict`与`Dict`对象基本相同, 一般继承并改写`Dict`时最好是使用`UserDict`, 这样`dict`还可以用于其他用途, 不会出现冲突.
 
+```Python
+def __init__(dict):
+    return UserDict
+```
+
+* self.data: 用于保存`UserDict`的变量
 
