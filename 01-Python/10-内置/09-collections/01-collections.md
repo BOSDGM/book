@@ -702,6 +702,59 @@ def __init__([items]):
 
 * 传入参数与`dict`相同
 
+示例一:
+
+```Python
+# 实现url_cache功能
+from collections import OrderedDict
+
+class LruCache(OrderedDict):
+    """缓存"""
+
+    def __init__(self, max_size=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.max_size = max_size
+
+    def __setitem__(self, key, value):
+        if len(self) >= self.max_size:
+            first = next(iter(self))
+            del self[first]
+        super().__setitem__(key, value)
+
+    def __getitem__(self, item):
+        value = super().__getitem__(item)
+        self.move_to_end(item)
+        return value
+
+    def __call__(self, size=100):
+        self.max_size = size
+        def func(fun):
+            def wrapper(*args, **kwargs):
+                if args in self:
+                    res = self[args]
+                else:
+                    res = fun(*args, **kwargs)
+                    self[args] = res
+                return res
+            return wrapper
+        return func
+
+uc = LruCache()
+
+@uc(size=100)
+def fib(x):
+    print(x)
+    if x < 2:
+        return 1
+    return fib(x - 1) + fib(x - 2)
+
+print(fib(20))
+print(fib(30))
+print(fib(20))
+```
+
+
+
 支持`dict`中的全部功能, 并拓展了部分功能
 
 ### 3.3.1 新增功能
