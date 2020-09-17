@@ -234,13 +234,32 @@
     - 02-网络
       * [01-双网卡配置](04-OS/03-虚拟机/02-网络/01-双网卡配置.md)
 - 07-工具
-  - 01 Nginx
-    * [00 README](07-工具/01-Nginx/00-README.md)
-    * [01-安装](07-工具/01-Nginx/01-安装.md)
-    * [02-配置说明](07-工具/01-Nginx/02-配置说明.md)
-    * [03-Nginx调优](07-工具/01-Nginx/03-Nginx调优.md)
-  - 02 Gunicorn
-    * [01 Helloword](07-工具/02-Gunicorn/01-helloword.md)
+  - 01 Proxy
+    - [01 Nginx](07-工具/01-Proxy/01-Nginx/README.md)
+      * [01-安装](07-工具/01-Proxy/01-Nginx/01-安装.md)
+      * [02-配置说明](07-工具/01-Proxy/01-Nginx/02-配置说明.md)
+      * [03-命令](07-工具/01-Proxy/01-Nginx/03-命令.md)
+      * [04-Nginx调优](07-工具/01-Proxy/01-Nginx/04-Nginx调优.md)
+    - [02 Gunicorn](07-工具/01-Proxy/02-Gunicorn/README.md)
+      * [01-安装](07-工具/01-Proxy/02-Gunicorn/01-安装.md)
+      * [02-配置](07-工具/01-Proxy/02-Gunicorn/02-配置.md)
+      * [03-命令](07-工具/01-Proxy/02-Gunicorn/03-命令.md)
+    - [03 U WSGI](07-工具/01-Proxy/03-uWSGI/README.md)
+      * [01-安装](07-工具/01-Proxy/03-uWSGI/01-安装.md)
+      * [02-配置文件](07-工具/01-Proxy/03-uWSGI/02-配置文件.md)
+      * [03-命令操作](07-工具/01-Proxy/03-uWSGI/03-命令操作.md)
+    - 09 LVS
+      * [01-安装](07-工具/01-Proxy/09-LVS/01-安装.md)
+      * [02-搭建LVS](07-工具/01-Proxy/09-LVS/02-搭建LVS.md)
+    - 10 Supervisord
+      * [01-安装](07-工具/01-Proxy/10-Supervisord/01-安装.md)
+      * [02-命令操作](07-工具/01-Proxy/10-Supervisord/02-命令操作.md)
+      * [03-配置文件](07-工具/01-Proxy/10-Supervisord/03-配置文件.md)
+    - 11 Open VPN
+      * [01-搭建](07-工具/01-Proxy/11-OpenVPN/01-搭建.md)
+    - 12 SSR
+      * [01 Ssr](07-工具/01-Proxy/12-SSR/01-ssr.md)
+      * [02 Ss](07-工具/01-Proxy/12-SSR/02-ss.md)
   - 03 Redis
     * [10-常见错误](07-工具/03-Redis/10-常见错误.md)
   - 04 Mongo DB
@@ -266,18 +285,6 @@
     * [01-安装](07-工具/08-FTP/01-安装.md)
     * [02-FTP配置](07-工具/08-FTP/02-FTP配置.md)
     * [03-FTP命令](07-工具/08-FTP/03-FTP命令.md)
-  - 09 LVS
-    * [01-安装](07-工具/09-LVS/01-安装.md)
-    * [02-搭建LVS](07-工具/09-LVS/02-搭建LVS.md)
-  - 10 Supervisord
-    * [01-安装](07-工具/10-Supervisord/01-安装.md)
-    * [02-命令操作](07-工具/10-Supervisord/02-命令操作.md)
-    * [03-配置文件](07-工具/10-Supervisord/03-配置文件.md)
-  - 11 Open VPN
-    * [01-搭建](07-工具/11-OpenVPN/01-搭建.md)
-  - 12 SSR
-    * [01 Ssr](07-工具/12-SSR/01-ssr.md)
-    * [02 Ss](07-工具/12-SSR/02-ss.md)
   - 20 Ansible
     * [01-安装](07-工具/20-Ansible/01-安装.md)
     * [02-ansible命令](07-工具/20-Ansible/02-ansible命令.md)

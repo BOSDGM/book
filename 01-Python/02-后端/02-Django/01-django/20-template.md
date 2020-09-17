@@ -140,5 +140,13 @@ def index(request):
   {% endblock name %}
   ```
 
+  # 3. Django内部语法
+  
+  | 代码               | 描述             |
+  | ------------------ | ---------------- |
+  | `{% csrf_token %}` | `csrf_token`表单 |
+  
+  
+  
   
 

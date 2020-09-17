@@ -244,6 +244,8 @@ CACHES = {
 
 ## 3.1 静态文件
 
+### 3.1.1 静态文件读取配置
+
 **注意**: 当Django参数DEBUG配置为False时, 将会禁用web访问静态文件的权限, 所以需要使用nginx做负载.
 
 ```python
@@ -287,9 +289,44 @@ urlpatterns += staticfiles_urlpatterns()
   # http://127.0.0.1:8000/static/user/index.html  即可访问./statics/user/img/index.html文件
   ```
 
-  
+
+### 3.1.2 项目静态文件采集
+
+收集项目中全部的静态文件, 用于nginx动静分离
+
+```Python
+# setting.py
+# 指定静态文件的输出路径
+STATICS_ROOT = os.path.join(os.path.dirname(BASE_DIR), "front/static")
+```
+
+命令行执行如下命令, 开始对静态文件进行采集
+
+```bash
+python manage.py collectstatic
+```
 
 ## 3.2 模板文件
 
-# 4. xxx
+# 4. 权限
+
+## 4.1 CORS
+
+跨域请求, 白名单配置
+
+```Python
+ALLOWED_HOSTS = ["xxx.hpcm.site", "api.hpcm.site", "127.0.0.1"]
+CORS_ORTGIN_WHITELIST = (
+    '127.0.0.1:8080',
+    'localhost:8080',
+    "xxx.hpcm.site:8080",
+    "xxx.hpcm.site"
+)
+```
+
+配置完成即可跨域访问
+
+
+
+
 
