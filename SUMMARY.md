@@ -126,6 +126,9 @@
       * [02-正则匹配](01-Python/10-内置/01-re/02-正则匹配.md)
     - [02 Logging](01-Python/10-内置/02-logging/README.md)
       * [01 Logging](01-Python/10-内置/02-logging/01-logging.md)
+    - [03 Random](01-Python/10-内置/03-random/README.md)
+      * [01-单个选取](01-Python/10-内置/03-random/01-单个选取.md)
+      * [02-批量选取](01-Python/10-内置/03-random/02-批量选取.md)
     - [05 Functools](01-Python/10-内置/05-functools/README.md)
       * [10-异常处理](01-Python/10-内置/05-functools/10-异常处理.md)
     - [09 Collections](01-Python/10-内置/09-collections/README.md)
@@ -260,34 +263,45 @@
     - 12 SSR
       * [01 Ssr](07-工具/01-Proxy/12-SSR/01-ssr.md)
       * [02 Ss](07-工具/01-Proxy/12-SSR/02-ss.md)
-  - 03 Redis
-    * [10-常见错误](07-工具/03-Redis/10-常见错误.md)
-  - 04 Mongo DB
-    * [10-常见错误](07-工具/04-MongoDB/10-常见错误.md)
-  - 05 My SQL
-    * [01-安装](07-工具/05-MySQL/01-安装.md)
-    * [02 CURD](07-工具/05-MySQL/02-CURD.md)
-    * [05-账号密码操作](07-工具/05-MySQL/05-账号密码操作.md)
-    * [10-主从同步](07-工具/05-MySQL/10-主从同步.md)
-    * [11-日志操作](07-工具/05-MySQL/11-日志操作.md)
-  - 06 Docker
-    * [01-安装](07-工具/06-Docker/01-安装.md)
-    * [02-docker镜像](07-工具/06-Docker/02-docker镜像.md)
-    * [03-docker运行程序](07-工具/06-Docker/03-docker运行程序.md)
-    * [04-常用镜像运行参数](07-工具/06-Docker/04-常用镜像运行参数.md)
-    * [11-docker hup搭建](07-工具/06-Docker/11-docker hup搭建.md)
-  - 07 SSH
-    * [01-安装](07-工具/07-SSH/01-安装.md)
-    * [02-sshd配置文件](07-工具/07-SSH/02-sshd配置文件.md)
-    * [03-ssh命令](07-工具/07-SSH/03-ssh命令.md)
-    * [04-scp命令](07-工具/07-SSH/04-scp命令.md)
-  - 08 FTP
-    * [01-安装](07-工具/08-FTP/01-安装.md)
-    * [02-FTP配置](07-工具/08-FTP/02-FTP配置.md)
-    * [03-FTP命令](07-工具/08-FTP/03-FTP命令.md)
-  - 20 Ansible
-    * [01-安装](07-工具/20-Ansible/01-安装.md)
-    * [02-ansible命令](07-工具/20-Ansible/02-ansible命令.md)
-  - 30 Gitbook
-    * [01-安装](07-工具/30-gitbook/01-安装.md)
-    * [03-githup组合搭建blog](07-工具/30-gitbook/03-githup组合搭建blog.md)
+  - [02 SQL](07-工具/02-SQL/README.md)
+    - [01 My SQL](07-工具/02-SQL/01-MySQL/README.md)
+      * [01-安装](07-工具/02-SQL/01-MySQL/01-安装.md)
+      * [02-基本类型](07-工具/02-SQL/01-MySQL/02-基本类型.md)
+      * [03-关键字](07-工具/02-SQL/01-MySQL/03-关键字.md)
+      * [05 CURD](07-工具/02-SQL/01-MySQL/05-CURD.md)
+      * [08-外键视图](07-工具/02-SQL/01-MySQL/08-外键视图.md)
+      * [10-账号密码操作](07-工具/02-SQL/01-MySQL/10-账号密码操作.md)
+      * [15-主从同步](07-工具/02-SQL/01-MySQL/15-主从同步.md)
+      * [20-日志操作](07-工具/02-SQL/01-MySQL/20-日志操作.md)
+    - 02 Redis
+      * [10-常见错误](07-工具/02-SQL/02-Redis/10-常见错误.md)
+    - 03 Mongo DB
+      * [10-常见错误](07-工具/02-SQL/03-MongoDB/10-常见错误.md)
+  - 03 Virtual
+    - 06 Docker
+      * [01-安装](07-工具/03-Virtual/06-Docker/01-安装.md)
+      * [02-docker镜像](07-工具/03-Virtual/06-Docker/02-docker镜像.md)
+      * [03-docker运行程序](07-工具/03-Virtual/06-Docker/03-docker运行程序.md)
+      * [04-常用镜像运行参数](07-工具/03-Virtual/06-Docker/04-常用镜像运行参数.md)
+      * [11-docker hup搭建](07-工具/03-Virtual/06-Docker/11-docker hup搭建.md)
+  - 04 Remote
+    - 07 SSH
+      * [01-安装](07-工具/04-Remote/07-SSH/01-安装.md)
+      * [02-sshd配置文件](07-工具/04-Remote/07-SSH/02-sshd配置文件.md)
+      * [03-ssh命令](07-工具/04-Remote/07-SSH/03-ssh命令.md)
+      * [04-scp命令](07-工具/04-Remote/07-SSH/04-scp命令.md)
+    - 08 FTP
+      * [01-安装](07-工具/04-Remote/08-FTP/01-安装.md)
+      * [02-FTP配置](07-工具/04-Remote/08-FTP/02-FTP配置.md)
+      * [03-FTP命令](07-工具/04-Remote/08-FTP/03-FTP命令.md)
+    - 20 Ansible
+      * [01-安装](07-工具/04-Remote/20-Ansible/01-安装.md)
+      * [02-ansible命令](07-工具/04-Remote/20-Ansible/02-ansible命令.md)
+  - 10 Note
+    - 30 Gitbook
+      * [01-安装](07-工具/10-Note/30-gitbook/01-安装.md)
+      * [03-githup组合搭建blog](07-工具/10-Note/30-gitbook/03-githup组合搭建blog.md)
+  - 100-辅助工具
+    - [01 Navicat](07-工具/100-辅助工具/01-Navicat/README.md)
+      * [01-安装](07-工具/100-辅助工具/01-Navicat/01-安装.md)
+      * [02-数据库连接](07-工具/100-辅助工具/01-Navicat/02-数据库连接.md)
