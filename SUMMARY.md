@@ -157,6 +157,8 @@
       * [02-Django使用](01-Python/11-三方/03-celery/02-Django使用.md)
     - 10 Paramiko
       * [01-常见错误](01-Python/11-三方/10-paramiko/01-常见错误.md)
+    - [11 Pymysql](01-Python/11-三方/11-pymysql/README.md)
+      * [01-安装](01-Python/11-三方/11-pymysql/01-安装.md)
     - 20 Pysnmp
       * [01-实例](01-Python/11-三方/20-pysnmp/01-实例.md)
   - 12-项目
@@ -266,13 +268,16 @@
   - [02 SQL](07-工具/02-SQL/README.md)
     - [01 My SQL](07-工具/02-SQL/01-MySQL/README.md)
       * [01-安装](07-工具/02-SQL/01-MySQL/01-安装.md)
-      * [02-基本类型](07-工具/02-SQL/01-MySQL/02-基本类型.md)
+      * [02-命令](07-工具/02-SQL/01-MySQL/02-命令.md)
       * [03-关键字](07-工具/02-SQL/01-MySQL/03-关键字.md)
-      * [05 CURD](07-工具/02-SQL/01-MySQL/05-CURD.md)
+      * [04-基本类型](07-工具/02-SQL/01-MySQL/04-基本类型.md)
+      * [05-增删改查](07-工具/02-SQL/01-MySQL/05-增删改查.md)
       * [08-外键视图](07-工具/02-SQL/01-MySQL/08-外键视图.md)
       * [10-账号密码操作](07-工具/02-SQL/01-MySQL/10-账号密码操作.md)
       * [15-主从同步](07-工具/02-SQL/01-MySQL/15-主从同步.md)
+      * [16-数据备份](07-工具/02-SQL/01-MySQL/16-数据备份.md)
       * [20-日志操作](07-工具/02-SQL/01-MySQL/20-日志操作.md)
+      * [30-查询优化](07-工具/02-SQL/01-MySQL/30-查询优化.md)
     - 02 Redis
       * [10-常见错误](07-工具/02-SQL/02-Redis/10-常见错误.md)
     - 03 Mongo DB
