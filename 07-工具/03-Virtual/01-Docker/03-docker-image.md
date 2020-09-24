@@ -82,8 +82,6 @@ docker image pull hub.c.163.com/library/nginx
 
    
 
-
-
 ## 1.3 载入本地镜像
 
 ```bash
