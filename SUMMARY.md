@@ -321,6 +321,10 @@
     - [01 Git](07-工具/05-VersionControl/01-git/README.md)
       * [01-安装](07-工具/05-VersionControl/01-git/01-安装.md)
       * [02-常用命令](07-工具/05-VersionControl/01-git/02-常用命令.md)
+    - [02 Svn](07-工具/05-VersionControl/02-svn/README.md)
+      * [01-安装](07-工具/05-VersionControl/02-svn/01-安装.md)
+      * [02-命令](07-工具/05-VersionControl/02-svn/02-命令.md)
+      * [10-自建版本库](07-工具/05-VersionControl/02-svn/10-自建版本库.md)
   - 10 Note
     - 30 Gitbook
       * [01-安装](07-工具/10-Note/30-gitbook/01-安装.md)
