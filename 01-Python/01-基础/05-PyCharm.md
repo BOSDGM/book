@@ -141,7 +141,7 @@ ctrl+x
 
 设置Python解释器为`Python_root.sh`即可
 
-## 4.2 禁用test模式
+## 4.3 禁用test模式
 
 ![img](image/05-PyCharm/7080f8ca-401a-4916-b306-00d242b825bc.png)
 
@@ -152,3 +152,21 @@ ctrl+x
 ![img](image/05-PyCharm/e617050a-f507-4fcd-b198-5411fcf0bd04.png)
 
 然后重新运行即可
+
+## 4.2 git变更代码后文件问题
+
+场景描述:
+
+主要是由于git代码分支切换, 导致部分文件不能正常显示
+
+处理方案
+
+* 方法一: 重新载入项目
+
+  ![image-20200928215135502](image/05-PyCharm/image-20200928215135502.png)
+
+
+
+* 方法二: 直接删除PyCharm项目缓存
+
+  找到`.idea`隐藏文件, 直接干掉. 然后重新导入项目即可
