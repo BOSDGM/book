@@ -62,7 +62,7 @@ from logging.handlers import RotatingFileHandler
 
 logging.basicConfig(level=logging.INFO)                                                          # 配置等级
 file_handler = RotatingFileHandler("logs/run.log", maxBytes=1024 * 1024 * 100, backupCount=10)   # 配置文件路径/大小/数量
-format_log = logging.Formatter('[%(levelname).4s %(asctime)s] %(module)s %(lineno)d %(message)s')# 配置输出格式
+format_log = logging.Formatter("[%(levelname).4s] %(asctime)s P_%(process)d_T_%(thread)d <%(module)s:%(lineno)d>: %(message)s")# 配置输出格式
 file_handler.setFormatter(format_log)                                                            # 载入输出格式
 console = logging.StreamHandler()                                                                # 配置终端输出
 console.setFormatter(format_log)                                                                 # 载入输出格式
@@ -95,10 +95,10 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[%(levelname).4s %(asctime)s] %(module)s %(lineno)d %(message)s'
+            'format': "[%(levelname).4s] %(asctime)s P_%(process)d_T_%(thread)d <%(module)s:%(lineno)d>: %(message)s"
         },
         'simple': {
-            'format': '[%(levelname).4s %(asctime)s] %(module)s %(lineno)d %(message)s'
+            'format': "[%(levelname).4s] %(asctime)s P_%(process)d_T_%(thread)d <%(module)s:%(lineno)d>: %(message)s"
         },
     },
     # 'filters': {
