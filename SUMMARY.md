@@ -166,6 +166,8 @@
       * [02-用户连接](01-Python/11-三方/13-docker/02-用户连接.md)
     - 20 Pysnmp
       * [01-实例](01-Python/11-三方/20-pysnmp/01-实例.md)
+    - 21 Matplotlib
+      * [10-示例](01-Python/11-三方/21-matplotlib/10-示例.md)
   - 12-项目
     - 01-系统监控
       * [01-cpu与内存](01-Python/12-项目/01-系统监控/01-cpu与内存.md)
@@ -186,15 +188,19 @@
       * [00 README](04-OS/02-linux/00-系统安装/00-README.md)
       * [01-Centos安装](04-OS/02-linux/00-系统安装/01-Centos安装.md)
       * [02-Ubuntu安装](04-OS/02-linux/00-系统安装/02-Ubuntu安装.md)
+      * [03-操作指引](04-OS/02-linux/00-系统安装/03-操作指引.md)
       * [06-开关机](04-OS/02-linux/00-系统安装/06-开关机.md)
     - 01-用户管理
       * [01-用户组](04-OS/02-linux/01-用户管理/01-用户组.md)
+      * [02-用户修改](04-OS/02-linux/01-用户管理/02-用户修改.md)
       * [50-sudo权限恢复](04-OS/02-linux/01-用户管理/50-sudo权限恢复.md)
       * [51-root密码重置](04-OS/02-linux/01-用户管理/51-root密码重置.md)
       * [52-用户shell环境恢复](04-OS/02-linux/01-用户管理/52-用户shell环境恢复.md)
     - 02-文件目录
       * [01-文件权限](04-OS/02-linux/02-文件目录/01-文件权限.md)
-      * [10-常用文件](04-OS/02-linux/02-文件目录/10-常用文件.md)
+      * [02-文本操作](04-OS/02-linux/02-文件目录/02-文本操作.md)
+      * [03-文件压缩](04-OS/02-linux/02-文件目录/03-文件压缩.md)
+      * [10-常用文件目录](04-OS/02-linux/02-文件目录/10-常用文件目录.md)
       * [50-误删恢复](04-OS/02-linux/02-文件目录/50-误删恢复.md)
     - 03-磁盘管理
       - 01-磁盘挂载
@@ -205,7 +211,8 @@
         * [00 README](04-OS/02-linux/03-磁盘管理/02-磁盘分区/00-README.md)
         * [01-fdisk分区](04-OS/02-linux/03-磁盘管理/02-磁盘分区/01-fdisk分区.md)
         * [05-gdisk分区](04-OS/02-linux/03-磁盘管理/02-磁盘分区/05-gdisk分区.md)
-      * [05-磁盘占用查看](04-OS/02-linux/03-磁盘管理/05-磁盘占用查看.md)
+      * [01-查看存储占用](04-OS/02-linux/03-磁盘管理/01-查看存储占用.md)
+      * [02-查看IO占用](04-OS/02-linux/03-磁盘管理/02-查看IO占用.md)
     - 04-内存管理
       * [03-拓展swap分区](04-OS/02-linux/04-内存管理/03-拓展swap分区.md)
       * [05-内存占用查看](04-OS/02-linux/04-内存管理/05-内存占用查看.md)
@@ -215,7 +222,11 @@
       * [00-单位转换](04-OS/02-linux/06-网络管理/00-单位转换.md)
       * [01-网卡配置](04-OS/02-linux/06-网络管理/01-网卡配置.md)
       * [02-防火墙](04-OS/02-linux/06-网络管理/02-防火墙.md)
+      * [03-端口号](04-OS/02-linux/06-网络管理/03-端口号.md)
       * [05-流量占用查询](04-OS/02-linux/06-网络管理/05-流量占用查询.md)
+      * [06-网络调试工具](04-OS/02-linux/06-网络管理/06-网络调试工具.md)
+    - 07-进程管理
+      * [01-进程管理](04-OS/02-linux/07-进程管理/01-进程管理.md)
     - 09-软件及源
       - 01 Redhat
         * [01-yum换源](04-OS/02-linux/09-软件及源/01-Redhat/01-yum换源.md)
@@ -233,6 +244,7 @@
     - 11 Shell
       - 01-shell基础
         * [01 Shell](04-OS/02-linux/11-shell/01-shell基础/01-shell.md)
+        * [02-转移笔记](04-OS/02-linux/11-shell/01-shell基础/02-转移笔记.md)
       - 10-项目
         - 01-服务管理
           * [01-启停脚本](04-OS/02-linux/11-shell/10-项目/01-服务管理/01-启停脚本.md)
@@ -240,9 +252,6 @@
       * [01-文件备份](04-OS/02-linux/12-数据备份/01-文件备份.md)
     - 19-界面化管理
       * [30-界面化](04-OS/02-linux/19-界面化管理/30-界面化.md)
-  - 03-虚拟机
-    - 02-网络
-      * [01-双网卡配置](04-OS/03-虚拟机/02-网络/01-双网卡配置.md)
 - 07-工具
   - 01 Proxy
     - [01 Nginx](07-工具/01-Proxy/01-Nginx/README.md)
@@ -270,6 +279,8 @@
     - 12 SSR
       * [01 Ssr](07-工具/01-Proxy/12-SSR/01-ssr.md)
       * [02 Ss](07-工具/01-Proxy/12-SSR/02-ss.md)
+    - 13 N 2 N
+      * [10-具体操作](07-工具/01-Proxy/13-N2N/10-具体操作.md)
   - [02 SQL](07-工具/02-SQL/README.md)
     - [01 My SQL](07-工具/02-SQL/01-MySQL/README.md)
       * [01-安装](07-工具/02-SQL/01-MySQL/01-安装.md)
@@ -314,12 +325,15 @@
       * [20 Docker Hup](07-工具/03-Virtual/01-Docker/20-docker-hup.md)
       * [30-常用镜像](07-工具/03-Virtual/01-Docker/30-常用镜像.md)
     - [02 V Mware](07-工具/03-Virtual/02-VMware/README.md)
+      - 02-网络
+        * [01-双网卡配置](07-工具/03-Virtual/02-VMware/02-网络/01-双网卡配置.md)
       * [01-安装](07-工具/03-Virtual/02-VMware/01-安装.md)
       * [10-NAT网络配置](07-工具/03-Virtual/02-VMware/10-NAT网络配置.md)
     - [03 Virtual Box](07-工具/03-Virtual/03-VirtualBox/README.md)
       * [01-安装](07-工具/03-Virtual/03-VirtualBox/01-安装.md)
       * [20 Vagrant](07-工具/03-Virtual/03-VirtualBox/20-Vagrant.md)
     - 10 Vagrant
+      * [03 Vagrantfile](07-工具/03-Virtual/10-Vagrant/03-Vagrantfile.md)
       * [05-网络映射](07-工具/03-Virtual/10-Vagrant/05-网络映射.md)
   - 04 Remote
     - 07 SSH
@@ -334,6 +348,7 @@
     - 20 Ansible
       * [01-安装](07-工具/04-Remote/20-Ansible/01-安装.md)
       * [02-ansible命令](07-工具/04-Remote/20-Ansible/02-ansible命令.md)
+      * [10-转移笔记](07-工具/04-Remote/20-Ansible/10-转移笔记.md)
   - [05 Version Control](07-工具/05-VersionControl/README.md)
     - [01 Git](07-工具/05-VersionControl/01-git/README.md)
       * [01-安装](07-工具/05-VersionControl/01-git/01-安装.md)
