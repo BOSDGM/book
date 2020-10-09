@@ -131,6 +131,8 @@
       * [02-批量选取](01-Python/10-内置/03-random/02-批量选取.md)
     - [05 Functools](01-Python/10-内置/05-functools/README.md)
       * [10-异常处理](01-Python/10-内置/05-functools/10-异常处理.md)
+    - 07 Sys
+      * [01-输入输出](01-Python/10-内置/07-sys/01-输入输出.md)
     - [09 Collections](01-Python/10-内置/09-collections/README.md)
       * [01 Collections](01-Python/10-内置/09-collections/01-collections.md)
     - 10 Shutil
@@ -251,9 +253,14 @@
   - 01-基础
     * [01-终端](05-Shell/01-基础/01-终端.md)
     * [02-命令](05-Shell/01-基础/02-命令.md)
-    * [03-变量](05-Shell/01-基础/03-变量.md)
     * [03-特殊符号](05-Shell/01-基础/03-特殊符号.md)
+    * [04-变量](05-Shell/01-基础/04-变量.md)
+    * [05-条件判断](05-Shell/01-基础/05-条件判断.md)
+    * [06-重定向](05-Shell/01-基础/06-重定向.md)
+    * [07-循环](05-Shell/01-基础/07-循环.md)
+    * [08-函数](05-Shell/01-基础/08-函数.md)
     * [10-shell运行](05-Shell/01-基础/10-shell运行.md)
+    * [11 Shell](05-Shell/01-基础/11-shell.md)
   - 10-项目
     - 01-服务管理
       * [01-启停脚本](05-Shell/10-项目/01-服务管理/01-启停脚本.md)
