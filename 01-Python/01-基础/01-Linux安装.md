@@ -4,32 +4,6 @@
 
 ### 1.1.1 Centos 6
 
-* sqlite
-
-  ```bash
-  yum install -y sqlite sqlite-devel
-  ```
-
-* uuid
-
-  ```bash
-  yum install -y uuid uuid-devel libuuid libuuid-devel
-  ```
-
-* ssl
-
-  ```bash
-  yum install -y openssl openssl-devel
-  ```
-
-* zlib
-
-  ```bash
-  yum install zib zib-devel
-  ```
-
-可以直接执行如下命令, 来解决全部问题
-
 ```bash
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite sqlite-devel readline-devel tk tk-devel gdbm gdbm-devel db4-devel libpcap-devel lzma xz xz-devel libuuid libuuid-devel libffi-devel
 ```
@@ -272,7 +246,7 @@ cd Python-3.7.2
 ### 2.2.2 编译安装
 
 ```python
-./configure --prefix=/usr/local/Python/python37 --enable-shared --enable-optimizations
+./configure --prefix=/usr/local/python/python37 --enable-shared --enable-optimizations
 
 make -j4
 

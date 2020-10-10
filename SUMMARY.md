@@ -259,8 +259,7 @@
     * [06-重定向](05-Shell/01-基础/06-重定向.md)
     * [07-循环](05-Shell/01-基础/07-循环.md)
     * [08-函数](05-Shell/01-基础/08-函数.md)
-    * [10-shell运行](05-Shell/01-基础/10-shell运行.md)
-    * [11 Shell](05-Shell/01-基础/11-shell.md)
+    * [10-shell脚本运行](05-Shell/01-基础/10-shell脚本运行.md)
   - 10-项目
     - 01-服务管理
       * [01-启停脚本](05-Shell/10-项目/01-服务管理/01-启停脚本.md)
@@ -343,6 +342,8 @@
       * [10-NAT网络配置](07-工具/03-Virtual/02-VMware/10-NAT网络配置.md)
     - [03 Virtual Box](07-工具/03-Virtual/03-VirtualBox/README.md)
       * [01-安装](07-工具/03-Virtual/03-VirtualBox/01-安装.md)
+      * [05-网卡配置](07-工具/03-Virtual/03-VirtualBox/05-网卡配置.md)
+      * [06-共享文件夹](07-工具/03-Virtual/03-VirtualBox/06-共享文件夹.md)
       * [20 Vagrant](07-工具/03-Virtual/03-VirtualBox/20-Vagrant.md)
     - 10 Vagrant
       * [03 Vagrantfile](07-工具/03-Virtual/10-Vagrant/03-Vagrantfile.md)
