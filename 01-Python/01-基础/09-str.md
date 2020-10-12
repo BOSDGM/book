@@ -408,5 +408,121 @@ Out[19]: 'a'
 
 同`strip`, 不同之处在于, 只右边清理
 
-### 2.4 判断
+### 2.2.5 大小写转换
+
+#### > upper
+
+将所有字母转换为大写
+
+```python
+def upper(self):
+return str
+```
+
+示例
+
+```python
+In [1]: "ab cd".upper()                                                                                     
+Out[1]: 'AB CD' 
+```
+
+#### > capitalize
+
+将每句话中的首字母大写
+
+#### > title
+
+将每个单词大写
+
+#### > lower
+
+将所有字母转换为小写
+
+#### > casefold
+
+将其他语种(非汉语或英语)转换小写
+
+#### > swapcase
+
+将每个字母大小写互转
+
+## 2.3 判断
+
+### 2.3.1 数字判断
+
+#### > isdigit
+
+判断, 是否存在且字符中全部为数字(Unicode数字, byte数字, 全角数字, 罗马数字)
+
+```python
+def isdigit(self):
+return bool
+```
+
+示例
+
+```python
+In [2]: "12".isdigit()                                                                                       
+Out[2]: True
+```
+
+#### > isdecimal
+
+判断, 是否存在且字符中全为十进制数字(unicode数字, 全角数字)
+
+#### > isnumeric
+
+判断, 是否存在且字符中全为十进制数字(Unicode数字, bytes数字, 全角数字, 罗马数字)
+
+### 2.3.2 字母判断
+
+#### > isalpha
+
+判断, 是否存在且字符中全为字母
+
+#### > isupper
+
+判断, 是否存在且字符中全为大写字母
+
+#### > islower
+
+判断, 是否存在且字符中全为小写字母
+
+#### > isalnum
+
+判断, 是否存在且字符中全为字母, 数字, 或者两者皆有.
+
+#### > isspace
+
+判断, 是否全部为空格
+
+### 2.3.3 边界判断
+
+#### > startswith
+
+判断, 是否以某个字符开头
+
+```python
+def startswith(prefix, start, end):
+return bool
+```
+
+* prefix: `str`, 判断以什么开头
+* start: `int`, 判断起始索引值
+* end: `int`, 判断终止索引值
+
+示例
+
+```python
+In [4]: "12345".startswith("2", 1)                                                                           
+Out[4]: True
+```
+
+#### > endswith
+
+判断, 是否以某个字符结尾
+
+
+
+
 
