@@ -162,8 +162,11 @@
     - [11 Base 64](01-Python/10-内置/11-base64/README.md)
     - 12 Multiprocessing
       * [05 Queue](01-Python/10-内置/12-multiprocessing/05-Queue.md)
-    - 13 Threading
-      * [10-终止线程](01-Python/10-内置/13-threading/10-终止线程.md)
+    - [13-线程](01-Python/10-内置/13-线程/README.md)
+      * [01-线程创建](01-Python/10-内置/13-线程/01-线程创建.md)
+      * [02-线程池](01-Python/10-内置/13-线程/02-线程池.md)
+      * [03-线程锁](01-Python/10-内置/13-线程/03-线程锁.md)
+      * [10-终止线程](01-Python/10-内置/13-线程/10-终止线程.md)
     - [20 Json](01-Python/10-内置/20-json/README.md)
       * [01 Json](01-Python/10-内置/20-json/01-json.md)
     - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
