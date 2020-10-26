@@ -28,3 +28,43 @@ MIDDLEWARE = [
 ]
 ```
 
+# 3. 项目启动时仅执行一次
+
+1. 配置启动事宜
+
+   ```python
+   # 操作文件: /app/apps.py
+   
+   from django.apps import AppConfig
+   
+   
+   class UsersConfig(AppConfig):
+       name = 'users'
+   
+       def ready(self):
+           print("only execute once!")
+   ```
+
+2. 设置需要加载的内容
+
+   ```python
+   # 操作文件: /app/__init__.py
+   
+   default_app_config = 'app.apps.AppConfig'
+   ```
+
+3. 安装APP
+
+   ```python
+   # 操作文件: /project/settings.py
+   
+   INSTALLED_APPS = [
+       ...
+       "app"
+   ]
+   ```
+
+   
+
+
+
