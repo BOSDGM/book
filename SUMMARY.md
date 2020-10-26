@@ -160,6 +160,10 @@
       * [01-文件目录操作](01-Python/10-内置/10-shutil/01-文件目录操作.md)
       * [03-终端操作](01-Python/10-内置/10-shutil/03-终端操作.md)
     - [11 Base 64](01-Python/10-内置/11-base64/README.md)
+    - 12 Multiprocessing
+      * [05 Queue](01-Python/10-内置/12-multiprocessing/05-Queue.md)
+    - 13 Threading
+      * [10-终止线程](01-Python/10-内置/13-threading/10-终止线程.md)
     - [20 Json](01-Python/10-内置/20-json/README.md)
       * [01 Json](01-Python/10-内置/20-json/01-json.md)
     - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
@@ -191,6 +195,9 @@
       * [01-实例](01-Python/11-三方/20-pysnmp/01-实例.md)
     - 21 Matplotlib
       * [10-示例](01-Python/11-三方/21-matplotlib/10-示例.md)
+    - [22 Haystack](01-Python/11-三方/22-haystack/README.md)
+      * [01-安装](01-Python/11-三方/22-haystack/01-安装.md)
+      * [02-使用](01-Python/11-三方/22-haystack/02-使用.md)
   - 12-项目
     - 01-系统监控
       * [01-cpu与内存](01-Python/12-项目/01-系统监控/01-cpu与内存.md)
@@ -251,7 +258,8 @@
       * [05-流量占用查询](04-OS/02-linux/06-网络管理/05-流量占用查询.md)
       * [06-网络调试工具](04-OS/02-linux/06-网络管理/06-网络调试工具.md)
     - 07-进程管理
-      * [01-进程管理](04-OS/02-linux/07-进程管理/01-进程管理.md)
+      * [01-进程](04-OS/02-linux/07-进程管理/01-进程.md)
+      * [05-进程管理](04-OS/02-linux/07-进程管理/05-进程管理.md)
     - 08-时间管理
       * [01-时间操作](04-OS/02-linux/08-时间管理/01-时间操作.md)
     - 09-软件及源
