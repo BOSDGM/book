@@ -8,6 +8,7 @@
         "back-to-top-button",
         "chapter-fold",
         "splitter",
-        "prism", "-highlight"
+        "prism", "-highlight",
+        "pageview-count"
     ]
 }
