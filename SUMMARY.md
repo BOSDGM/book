@@ -176,7 +176,7 @@
       * [01 Json](01-Python/10-内置/20-json/01-json.md)
     - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
   - 11-三方
-    - 01 Rpyc
+    - [01 Rpyc](01-Python/11-三方/01-rpyc/README.md)
       * [01-简介](01-Python/11-三方/01-rpyc/01-简介.md)
       * [02-安全管理](01-Python/11-三方/01-rpyc/02-安全管理.md)
       * [03](01-Python/11-三方/01-rpyc/03-.md)
@@ -288,6 +288,9 @@
       * [01-文件备份](04-OS/02-linux/12-数据备份/01-文件备份.md)
     - 19-界面化管理
       * [30-界面化](04-OS/02-linux/19-界面化管理/30-界面化.md)
+    - 50-依赖安装
+      - 01 Openssl
+        * [01 Cen OS](04-OS/02-linux/50-依赖安装/01-openssl/01-CenOS.md)
 - 05 Shell
   - 01-基础
     * [01-终端](05-Shell/01-基础/01-终端.md)
