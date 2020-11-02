@@ -194,6 +194,7 @@
       * [01-常见错误](01-Python/11-三方/10-paramiko/01-常见错误.md)
     - [11 Pymysql](01-Python/11-三方/11-pymysql/README.md)
       * [01-安装](01-Python/11-三方/11-pymysql/01-安装.md)
+      * [02 Mysqlclient](01-Python/11-三方/11-pymysql/02-mysqlclient.md)
     - [12 Elasticsearch](01-Python/11-三方/12-elasticsearch/README.md)
       * [03-docker部署](01-Python/11-三方/12-elasticsearch/03-docker部署.md)
     - [13 Docker](01-Python/11-三方/13-docker/README.md)
@@ -206,6 +207,8 @@
     - [22 Haystack](01-Python/11-三方/22-haystack/README.md)
       * [01-安装](01-Python/11-三方/22-haystack/01-安装.md)
       * [02-使用](01-Python/11-三方/22-haystack/02-使用.md)
+    - 23 Pyinstaller
+      * [20-打包错误](01-Python/11-三方/23-pyinstaller/20-打包错误.md)
   - 12-项目
     - 01-系统监控
       * [01-cpu与内存](01-Python/12-项目/01-系统监控/01-cpu与内存.md)
