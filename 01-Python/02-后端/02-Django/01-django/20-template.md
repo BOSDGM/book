@@ -140,13 +140,118 @@ def index(request):
   {% endblock name %}
   ```
 
-  # 3. Django内部语法
-  
-  | 代码               | 描述             |
-  | ------------------ | ---------------- |
-  | `{% csrf_token %}` | `csrf_token`表单 |
   
   
+## 2.5 内部语法
+
+| 代码               | 描述             |
+| ------------------ | ---------------- |
+| `{% csrf_token %}` | `csrf_token`表单 |
+
   
-  
+
+# 3. 表单form模板
+
+## 3.1 django自带模板
+
+### 3.1.1 hellow word
+
+先看一个hellow word
+
+1. 构建`form`类
+
+   ```python
+   # file: forms.py
+   from django import forms
+   
+   
+   class BookForm(forms.Form):
+       title = forms.CharField(label="书名", required=True, max_length=20)
+       pub_date = forms.DateField(label="出版日期", required=True)
+   ```
+
+2. 视图函数调用
+
+   ```python
+   from django.shortcuts import render
+   
+   from users.forms import BookForm
+   
+   
+   class ViewForm(View):
+       form = BookForm
+   
+       def get(self, request):
+           return render(request, "form.html", {"form": self.form})
+   
+       def post(self, request):
+           self.form = self.form(request.POST)
+           if self.form.is_valid():
+               print(self.form.cleaned_data)
+               return HttpResponse("OK!")
+           else:
+               return render(request, "form.html", {"form": self.form})
+   ```
+
+3. 路由配置
+
+   ```python
+   url("^form/$", views.ViewForm.as_view()),
+   ```
+
+4. `html`配置
+
+   ```jinja2
+   <form action="" method="post">
+       {% csrf_token %} // 注意设置csrf加密
+       {{ form }}
+       <input type="submit">
+   </form>
+   ```
+
+5. 测试连接
+
+   ```python
+   http://127.0.0.1:3000/users/form/
+   ```
+
+   ![](image/20-template/image-20201104203304873.png)
+
+   ![image-20201104203335233](image/20-template/image-20201104203335233.png)
+
+## 3.2 借用ORM生成
+
+### 3.2.1 helloword
+
+1. 模型类编写
+
+   ```python
+   class Book(models.Model):
+       title = models.CharField(max_length=10, null=False)
+       pub_data = models.DateField()
+   
+       class Meta:
+           db_table = "tb_book"
+   ```
+
+   
+
+2. form模型类编写
+
+   ```python
+   class BookModelForm(forms.ModelForm):
+       class Meta:
+           model = Book
+           fields = ["title", "pub_data"]
+   ```
+
+3. 视图函数(同3.1.1)
+
+4. `url`配置(同3.1.1)
+
+5. `html`配置(同3.1.1)
+
+6. 测试链接(同3.1.1)
+
+
 

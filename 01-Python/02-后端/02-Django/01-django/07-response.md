@@ -59,3 +59,20 @@ def get(self, request):
 | status            | int   | 否     | 响应码                                        |
 | reason            | str   | 否     | 提供响应头部中的`reason_phrase`属性           |
 | charset           | str   | 否     | 需要解析的字符集                              |
+
+# 10. 异常类
+
+| 类                            | 状态码 |
+| ----------------------------- | ------ |
+| HttpResponseRedirect          | 301    |
+| HttpResponsePermanentRedirect | 302    |
+| HttpResponseNotModified       | 304    |
+| HttpResponseBadRequest        | 400    |
+| HttpResponseNotFound          | 404    |
+| HttpResponseForbidden         | 403    |
+| HttpResponseNotAllowed        | 405    |
+| HttpResponseGone              | 410    |
+| HttpResponseServerError       | 500    |
+
+
+
