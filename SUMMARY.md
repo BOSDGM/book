@@ -139,6 +139,7 @@
         * [18 REST Request Response](01-Python/02-后端/02-Django/01-django/18-REST-request-response.md)
         * [19 REST Setting](01-Python/02-后端/02-Django/01-django/19-REST-setting.md)
         * [20 Template](01-Python/02-后端/02-Django/01-django/20-Template.md)
+        * [25-缓存-extensions](01-Python/02-后端/02-Django/01-django/25-缓存-extensions.md)
         * [30-项目本地化](01-Python/02-后端/02-Django/01-django/30-项目本地化.md)
       - [02 Project](01-Python/02-后端/02-Django/02-project/README.md)
         * [01-三级联动](01-Python/02-后端/02-Django/02-project/01-三级联动.md)
