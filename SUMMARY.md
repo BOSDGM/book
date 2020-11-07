@@ -143,6 +143,7 @@
         * [30-项目本地化](01-Python/02-后端/02-Django/01-django/30-项目本地化.md)
       - [02 Project](01-Python/02-后端/02-Django/02-project/README.md)
         * [01-三级联动](01-Python/02-后端/02-Django/02-project/01-三级联动.md)
+        * [02-邮箱激活发送](01-Python/02-后端/02-Django/02-project/02-邮箱激活发送.md)
   - [10-内置](01-Python/10-内置/README.md)
     - [01 Re](01-Python/10-内置/01-re/README.md)
       * [01-正则规则](01-Python/10-内置/01-re/01-正则规则.md)
