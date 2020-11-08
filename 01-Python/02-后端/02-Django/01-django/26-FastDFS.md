@@ -70,7 +70,7 @@ docker run -dti --network=host --name storage -e TRACKER_SERVER=10.0.0.12:22122 
    pip install requests
    ```
 
-2. 配置`client`配置文件[conf](xx)
+2. 配置`client`配置文件[conf](image/26-FastDFS/client.conf)
 
    修改部分:
 
@@ -89,7 +89,7 @@ docker run -dti --network=host --name storage -e TRACKER_SERVER=10.0.0.12:22122 
    res = client.upload_by_buffer("xx")    # 上传二进制流
    ```
 
-4.  访问
+4. 访问
 
    ```python
    curl localhost:8888/group/xxx

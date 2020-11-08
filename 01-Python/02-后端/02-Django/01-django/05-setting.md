@@ -183,9 +183,12 @@
 
 
 
+# 2. 数据库
 
-# 2. 数据库配置
-## 2.1 sqlite
+## 2.1 配置
+
+### 2.1.1 sqlite
+
 * sqlite
 
   ```python
@@ -196,7 +199,8 @@
       }
   }
   ```
-## 2.2 mysql
+### 2.1.2 mysql
+
 使用数据库前, 注意引擎声明
 
 ```python
@@ -217,7 +221,7 @@ DATABASES = {
 }
 ```
 
-## 2.3 redis
+### 2.1.3 redis
 
 ```python
 CACHES = {
@@ -236,6 +240,15 @@ CACHES = {
                 }
             }
         }
+```
+
+## 2.2 缓存配置
+
+### 2.2.1 session
+
+```python
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "session"  # 取值于CACHES
 ```
 
 
@@ -308,6 +321,52 @@ python manage.py collectstatic
 
 ## 3.2 模板文件
 
+### 3.3 日志配置
+
+```python
+LOGGING = {
+            'version': 1,
+            'disable_existing_loggers': False,
+            'formatters': {
+                'verbose': {
+                    'format': '%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s'
+                },
+                'simple': {
+                    'format': '%(levelname)s %(module)s %(lineno)d %(message)s'
+                },
+            },
+            'filters': {
+                'require_debug_true': {
+                    '()': 'django.utils.log.RequireDebugTrue',
+                },
+            },
+            'handlers': {
+                'console': {
+                    'level': 'DEBUG',
+                    'filters': ['require_debug_true'],
+                    'class': 'logging.StreamHandler',
+                    'formatter': 'simple'
+                },
+                'file': {
+                    'level': 'INFO',
+                    'class': 'logging.handlers.RotatingFileHandler',
+                    'filename': os.path.join(BASE_DIR, "logs/running.log"),  # 日志文件的位置
+                    'maxBytes': 300 * 1024 * 1024,
+                    'backupCount': 10,
+                    'formatter': 'verbose'
+                },
+            },
+            'loggers': {
+                'django': {  # 定义了一个名为django的日志器
+                    'handlers': ['console', 'file'],
+                    'propagate': True,
+                },
+            }
+        }
+```
+
+
+
 # 4. 权限
 
 ## 4.1 CORS
@@ -325,6 +384,17 @@ CORS_ORTGIN_WHITELIST = (
 ```
 
 配置完成即可跨域访问
+
+# 5. DRF
+
+## 5.1 日志处理
+
+```python
+ REST_FRAMEWORK = {
+                # 异常处理
+                'EXCEPTION_HANDLER': 'utils.exceptions.exception_handler',
+            }
+```
 
 
 
