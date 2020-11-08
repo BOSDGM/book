@@ -100,7 +100,7 @@ Out[6]: 0
 
 #### > rindex
 
-同`index`, 不同之处在于, 从左边开始查找
+同`index`, 不同之处在于, 从右边开始查找
 
 #### > find
 
@@ -206,7 +206,7 @@ Out[10]: ['', 'bcd', 'efd', 'ff']
 
 #### > splitlines
 
-以字符串标识符`\r\n\t`等开始分割
+以字符串标识符`\r\n`, `\n`开始分割
 
 ```python
 def splitlines(keepends=False):
@@ -284,7 +284,7 @@ Out[21]: 'a       b'
 
 * 映射函数`translate`
 
-**maketrams**
+**maketrans**
 
 创建一个映射表, 构建方式有三种
 
