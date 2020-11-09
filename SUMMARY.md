@@ -149,6 +149,8 @@
         * [02-邮箱激活发送](01-Python/02-后端/02-Django/02-project/02-邮箱激活发送.md)
         * [03-FastDFS自动处理文件](01-Python/02-后端/02-Django/02-project/03-FastDFS自动处理文件.md)
         * [04-注册登录](01-Python/02-后端/02-Django/02-project/04-注册登录.md)
+        * [05-购物车合并](01-Python/02-后端/02-Django/02-project/05-购物车合并.md)
+        * [06-订单结算](01-Python/02-后端/02-Django/02-project/06-订单结算.md)
   - [10-内置](01-Python/10-内置/README.md)
     - [01 Re](01-Python/10-内置/01-re/README.md)
       * [01-正则规则](01-Python/10-内置/01-re/01-正则规则.md)
@@ -214,7 +216,9 @@
       * [10-示例](01-Python/11-三方/21-matplotlib/10-示例.md)
     - [22 Haystack](01-Python/11-三方/22-haystack/README.md)
       * [01-安装](01-Python/11-三方/22-haystack/01-安装.md)
-      * [02-使用](01-Python/11-三方/22-haystack/02-使用.md)
+      * [05-ES-完整配置](01-Python/11-三方/22-haystack/05-ES-完整配置.md)
+      * [10-whoosh-完整配置](01-Python/11-三方/22-haystack/10-whoosh-完整配置.md)
+      * [11-whoosh-过滤查询](01-Python/11-三方/22-haystack/11-whoosh-过滤查询.md)
     - 23 Pyinstaller
       * [20-打包错误](01-Python/11-三方/23-pyinstaller/20-打包错误.md)
   - 12-项目

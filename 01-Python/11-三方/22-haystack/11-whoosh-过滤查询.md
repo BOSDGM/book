@@ -33,7 +33,7 @@ class GoodsSearchView(SearchView, View):
             "is_delete": self.get_status()
         }
         print(self.get_status())
-        return SearchQuerySet().filter(**filter_dict)
+        return SearchQuerySet().filter(**filter_dict).order_by("-id")
 
     def __call__(self, request):
         pass
