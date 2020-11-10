@@ -190,7 +190,13 @@ HAYSTACK_CONNECTIONS = {
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 ```
 
-### 1.2.6 至此完结测试
+### 1.2.6 索引重建
+
+```python
+python manage.py rebuild_index
+```
+
+### 1.2.7 至此完结测试
 
 ```python
 http://localhost:8000/foo/search/?name=t1
