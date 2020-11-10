@@ -205,8 +205,6 @@
     - [11 Pymysql](01-Python/11-三方/11-pymysql/README.md)
       * [01-安装](01-Python/11-三方/11-pymysql/01-安装.md)
       * [02 Mysqlclient](01-Python/11-三方/11-pymysql/02-mysqlclient.md)
-    - [12 Elasticsearch](01-Python/11-三方/12-elasticsearch/README.md)
-      * [03-docker部署](01-Python/11-三方/12-elasticsearch/03-docker部署.md)
     - [13 Docker](01-Python/11-三方/13-docker/README.md)
       * [01-安装](01-Python/11-三方/13-docker/01-安装.md)
       * [02-用户连接](01-Python/11-三方/13-docker/02-用户连接.md)
@@ -216,7 +214,7 @@
       * [10-示例](01-Python/11-三方/21-matplotlib/10-示例.md)
     - [22 Haystack](01-Python/11-三方/22-haystack/README.md)
       * [01-安装](01-Python/11-三方/22-haystack/01-安装.md)
-      * [05-ES-完整配置](01-Python/11-三方/22-haystack/05-ES-完整配置.md)
+      * [05-elasticsearch-完整配置](01-Python/11-三方/22-haystack/05-elasticsearch-完整配置.md)
       * [10-whoosh-完整配置](01-Python/11-三方/22-haystack/10-whoosh-完整配置.md)
       * [11-whoosh-过滤查询](01-Python/11-三方/22-haystack/11-whoosh-过滤查询.md)
     - 23 Pyinstaller
