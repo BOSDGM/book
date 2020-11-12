@@ -156,6 +156,9 @@
         * [07-页面静态化](01-Python/02-后端/02-Django/02-project/07-页面静态化.md)
         * [08-三方支付](01-Python/02-后端/02-Django/02-project/08-三方支付.md)
   - [10-内置](01-Python/10-内置/README.md)
+    - [01 Os](01-Python/10-内置/01-os/README.md)
+      * [01-路径操作](01-Python/10-内置/01-os/01-路径操作.md)
+      * [02-目录文件](01-Python/10-内置/01-os/02-目录文件.md)
     - 02 Sys
       * [01-输入输出](01-Python/10-内置/02-sys/01-输入输出.md)
     - [05 Time](01-Python/10-内置/05-time/README.md)
