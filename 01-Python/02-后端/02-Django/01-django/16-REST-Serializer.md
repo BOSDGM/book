@@ -94,9 +94,7 @@ urlpatterns += router.urls
 
 ```python
 def __init__(self, instance=None, data=empty, **kwargs):
-    kwargs:
-        context
-        many
+return serializer
 ```
 
 * instance:
@@ -111,17 +109,21 @@ def __init__(self, instance=None, data=empty, **kwargs):
 
   REST内置可以储存变量的对象, 类似flask中的g变量
 
-* many: 
+  * many: 
 
-  经源码查看, 好像没有什么用处
+    instance为单个, 还是多个.
 
-  ```python
-  ...  # 上方代码主要用于实例属性赋值
-  kwargs.pop('many', None)  # 直接剔除many字段
-  super().__init__(**kwargs)  # 然后就传给父类做其他业务逻辑了
-  ```
+**示例**
 
-  
+```python
+book = Books.objects.get(id=1)
+ser = BookSerializer(instance=book)
+ser.data   # 反序列化数据
+
+books = Books.objects.all()
+ser = BookSerializer(instance=books, many=True)
+ser.data  # 反序列化数据
+```
 
 ## 3.2 字段
 
@@ -442,9 +444,6 @@ class Many1Serializer(serializers.Serializer):
             ]
     ```
 
-    
-
-
 
 ### 4.2.2 使用验证
 
@@ -574,7 +573,7 @@ ser.validated_data  # 获取反序列化后的数据
 
 * 此类为`Serializer`的拓展类, 所以`Serializer`的全部属性都支持调用	
 
-## 5.1 序列化器
+## 5.1 Meta
 
 ```python
 from rest_framework import serializers
@@ -632,5 +631,22 @@ Meta类属性说明:
 
   
 
-  
+
+## 5.2 get
+
+如果序列化器中定义了`get_字段`的方法, 序列化时, 将会取用`get_字段`所产生的返回值
+
+ ```python
+class Many1Serializer(serializers.Serializer):
+    """Many1 序列化器"""
+    name = serializers.CharField(label="名称", max_length=20)
+    
+    def get_name(self, obj):
+		if obj.name == "1":
+            return 1
+        else:
+            return 2
+ ```
+
+
 
