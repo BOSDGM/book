@@ -176,6 +176,8 @@
       * [01-占位符操作](01-Python/10-内置/07-string/01-占位符操作.md)
     - [08 Functools](01-Python/10-内置/08-functools/README.md)
       * [01-函数](01-Python/10-内置/08-functools/01-函数.md)
+    - [09 Itertools](01-Python/10-内置/09-itertools/README.md)
+      * [01 Itertools](01-Python/10-内置/09-itertools/01-itertools.md)
     - [11 Random](01-Python/10-内置/11-random/README.md)
       * [01-单个选取](01-Python/10-内置/11-random/01-单个选取.md)
       * [02-批量选取](01-Python/10-内置/11-random/02-批量选取.md)
@@ -207,6 +209,9 @@
     - [25 Collections](01-Python/10-内置/25-collections/README.md)
       * [01 Collections](01-Python/10-内置/25-collections/01-collections.md)
     - [30 Telnetlib](01-Python/10-内置/30-telnetlib/README.md)
+      * [10-示例](01-Python/10-内置/30-telnetlib/10-示例.md)
+    - [31 Win 32](01-Python/10-内置/31-win32/README.md)
+      * [20-文件时间修改](01-Python/10-内置/31-win32/20-文件时间修改.md)
   - 11-三方
     - [01 Rpyc](01-Python/11-三方/01-rpyc/README.md)
       * [01-简介](01-Python/11-三方/01-rpyc/01-简介.md)
@@ -247,16 +252,27 @@
       * [02-本机ip](01-Python/12-项目/01-系统监控/02-本机ip.md)
       * [03-进程查杀](01-Python/12-项目/01-系统监控/03-进程查杀.md)
       * [04-ftp上传下载](01-Python/12-项目/01-系统监控/04-ftp上传下载.md)
+      * [05-日志切割](01-Python/12-项目/01-系统监控/05-日志切割.md)
+      * [06-文件备份](01-Python/12-项目/01-系统监控/06-文件备份.md)
     - 02-各种扫描
       * [01-Python全部变量扫描](01-Python/12-项目/02-各种扫描/01-Python全部变量扫描.md)
     - 03-经典算法
       * [01-斐波那契](01-Python/12-项目/03-经典算法/01-斐波那契.md)
+    - 04-办公组件
+      * [01-word替换](01-Python/12-项目/04-办公组件/01-word替换.md)
     - 05-启停控制
       * [01-window自动重启程序](01-Python/12-项目/05-启停控制/01-window自动重启程序.md)
-    - 11-网络攻击
-      * [01 SYN Flood](01-Python/12-项目/11-网络攻击/01-SYN_Flood.md)
-    - 12-网卡切换
-      * [01-网卡切换](01-Python/12-项目/12-网卡切换/01-网卡切换.md)
+    - 06-界面展示
+      * [01-网速检测](01-Python/12-项目/06-界面展示/01-网速检测.md)
+    - 07-爬虫示例
+      * [01-递归爬取rpm包](01-Python/12-项目/07-爬虫示例/01-递归爬取rpm包.md)
+      * [02-下载全部版本的whl](01-Python/12-项目/07-爬虫示例/02-下载全部版本的whl.md)
+    - 10-复用代码
+      * [01-工厂模式配置文件](01-Python/12-项目/10-复用代码/01-工厂模式配置文件.md)
+      * [02-手动实现isdangerous](01-Python/12-项目/10-复用代码/02-手动实现isdangerous.md)
+    - 11-网络操作
+      * [01 SYN Flood DDOS](01-Python/12-项目/11-网络操作/01-SYN_Flood(DDOS).md)
+      * [02-网卡切换](01-Python/12-项目/11-网络操作/02-网卡切换.md)
     - 30-操作小米
       * [01-小米云台视频合并](01-Python/12-项目/30-操作小米/01-小米云台视频合并.md)
 - 04 OS
