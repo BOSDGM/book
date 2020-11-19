@@ -178,6 +178,8 @@
       * [01-函数](01-Python/10-内置/08-functools/01-函数.md)
     - [09 Itertools](01-Python/10-内置/09-itertools/README.md)
       * [01 Itertools](01-Python/10-内置/09-itertools/01-itertools.md)
+    - [10 Operator](01-Python/10-内置/10-operator/README.md)
+      * [01 Operator](01-Python/10-内置/10-operator/01-operator.md)
     - [11 Random](01-Python/10-内置/11-random/README.md)
       * [01-单个选取](01-Python/10-内置/11-random/01-单个选取.md)
       * [02-批量选取](01-Python/10-内置/11-random/02-批量选取.md)
