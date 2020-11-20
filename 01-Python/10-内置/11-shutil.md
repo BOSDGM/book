@@ -169,7 +169,7 @@ def make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0, dry
   
   shutil.make_archive(base_name, format_type, root_dir, base_dir, verbose, dry_run, owner, group, logger)
   ```
-  
+
 * 压缩结果
 
   ```bash
@@ -231,6 +231,5 @@ def unpack_archive(filename, extract_dir=None, format=None)
   3 directories, 5 files
   (test) [appgess@localhost t_shutil]$
   ```
-
 
 

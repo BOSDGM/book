@@ -1,11 +1,15 @@
 # 1. 序列化
+
 ## 1.1 dumps
+
 将Python数据类型, 转化为json数据.
+
 ```Python
 def dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True,
         allow_nan=True, cls=None, indent=None, separators=None,
         default=None, sort_keys=False, **kw):
 ```
+
 * obj: Python object, 需要序列化的Python对象
 * skipkeys: bool, 是否跳过非Python基本对象()的处理, False表示不会跳过, 则会抛出`TypeError`异常
 * ensure_ascii: bool, 表示是否使用ascii码的转换, 如果为False则会原样输出, 不在使用转义功能
@@ -19,21 +23,29 @@ def dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True,
 * \*\*kw: 官方文档指出目前kw未设置任何参数.(2020-08-28, 改版于Python3.6)
 
 ## 1.2 dump
+
 将Python数据类型, 转化为json数据类型, 并储存到流中(含有`.write`方法的对象).
+
 ```Python
 def dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True,
         allow_nan=True, cls=None, indent=None, separators=None,
         default=None, sort_keys=False, **kw):
 ```
+
 * fp: `file-like object`, 文本类型的流对象, 比如`open`, `socket`等. 含有`write`方法即可
 * 其他方法同上
+
 # 2. 反序列化
+
 ## 2.1 loads
+
 将json数据, 转化为Python数据类型
+
 ```Python
 def loads(s, *, cls=None, object_hook=None, parse_float=None,
         parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
 ```
+
 * s: str, 需要转化为Python基本数据类型的字符串
 * cls: function, 指定序列化器, 用于非Python标准类型反序列化
 * object_hook: function, 
@@ -42,12 +54,16 @@ def loads(s, *, cls=None, object_hook=None, parse_float=None,
 * parse_constant: 
 * object_pairs_hook: function, 
 * \*\*kw: 官方文档指出目前kw未设置任何参数.(2020-08-28, 改版于Python3.6)
+
 ## 2.2 load
+
 将文本类型的json数据, 转化为Python基本数据类型.
+
 ```Python
 def load(fp, *, cls=None, object_hook=None, parse_float=None,
         parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
 ```
+
 * fp: `file-like object`, 文本类型的流对象, 只需含有`read()`方法即可
 * 其他方法同上
 

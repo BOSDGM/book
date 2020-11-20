@@ -160,7 +160,7 @@ return str
 * format: `str`, 时间的输出格式, 参见`datetime`模块
 * p_tuple: `struct_time/9元组`, 时间对象, 或者类似时间对象的9元组. 默认取值`time.localtime()`
 
-## 2.2 时区
+## 1.2 时区
 
 #### - daylight
 
@@ -178,7 +178,94 @@ return str
 
 返回二元组(本地时区非夏令时名称, 夏令时名称) 
 
-# 2. 时间等待
+# 2. 计数器
+
+## 2.1 时间计数器
+
+#### > monotonic
+
+计数器, 连续调用取差值. 不受系统时间影响, 精确单位: 秒
+
+```python
+def monotonic():
+return float
+```
+
+#### > monotonic_ns
+
+计数器, 连续调用取差值. 不受系统时间影响, 精确单位: 纳秒
+
+```python
+def monotonic_ns():
+return int
+```
+
+#### > perf_counter
+
+计数器, 调用后开始计时, 连续调用取差值. 精确单位: 秒
+
+```python
+def perf_counter():
+return float
+```
+
+#### > perf_counter_ns
+
+计数器, 调用后开始计时, 连续调用取差值. 精确单位: 纳秒
+
+```python
+def perf_counter_ns():
+return int
+```
+
+## 2.2 资源计数器
+
+#### > process_time
+
+获取当前进程占用CPU的时间, 精确单位: 秒
+
+#### > process_time_ns
+
+获取当前进程占用CPU的时间, 精确单位: 纳秒
+
+**示例**
+
+```python
+import time
+from multiprocessing import Process
+
+def recursive_feb(index):
+    if index <= 2:
+        return 1
+    else:
+        return recursive_feb(index - 1) + recursive_feb(index - 2)
+
+def process_use_cpu_time(i):
+    start_use = time.process_time()
+    start_use_ns = time.process_time_ns()
+    recursive_feb(i)
+    print(i, time.process_time() - start_use)
+    print(i, time.process_time_ns() - start_use_ns)
+
+if __name__ == '__main__':
+    p1 = Process(target=process_use_cpu_time, args=(35,))
+    p2 = Process(target=process_use_cpu_time, args=(34,))
+
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
+```
+
+#### > thread_time
+
+获取当前线程占用CPU的时间, 精确单位: 秒
+
+#### > thread_time_ns
+
+获取当前线程占用CPU的时间, 精确单位: 纳秒
+
+# 5. 时间等待
 
 #### > sleep
 
