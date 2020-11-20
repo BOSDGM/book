@@ -1,6 +1,10 @@
-# 1. 序列化
+# 1. json
 
-## 1.1 dumps
+本模块主要用于与其他语言进行交互时, 进行数据类型进行转化, 序列化对象(不记录Python数据格式)
+
+### 1.1.1 序列化
+
+#### > dumps
 
 将Python数据类型, 转化为json数据.
 
@@ -18,11 +22,11 @@ def dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True,
 * cls: func, 指定序列化器, 用于非Python标准类型序列化
 * indent: 0/数字/字符串, 缩进填充控制, `0/负数/''`只会增加换行符. None无缩进, 正数标书缩进1格.
 * separators: tuple, json数据中的`:`与`,`的控制, 默认使用(",", ": ").
-* default: function, 序列化之后, value不是基本类型, 则再次调用default来序列化, 直至为标准类型为止
+* default: function, 序列化之后, value不是基本类型, 将会递归调用`default`来序列化, 直至为标准类型为止
 * sort_keys: bool, 是否对keys进行排序处理
 * \*\*kw: 官方文档指出目前kw未设置任何参数.(2020-08-28, 改版于Python3.6)
 
-## 1.2 dump
+#### > dump
 
 将Python数据类型, 转化为json数据类型, 并储存到流中(含有`.write`方法的对象).
 
@@ -35,9 +39,9 @@ def dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True,
 * fp: `file-like object`, 文本类型的流对象, 比如`open`, `socket`等. 含有`write`方法即可
 * 其他方法同上
 
-# 2. 反序列化
+### 1.1.2 反序列化
 
-## 2.1 loads
+#### > loads
 
 将json数据, 转化为Python数据类型
 
@@ -55,7 +59,7 @@ def loads(s, *, cls=None, object_hook=None, parse_float=None,
 * object_pairs_hook: function, 
 * \*\*kw: 官方文档指出目前kw未设置任何参数.(2020-08-28, 改版于Python3.6)
 
-## 2.2 load
+#### > load
 
 将文本类型的json数据, 转化为Python基本数据类型.
 
